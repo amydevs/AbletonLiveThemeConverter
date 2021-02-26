@@ -1,24 +1,43 @@
 const fs = require('fs');
 const xml2js = require('xml2js');
 
-const rgba = new (require('./modules/rgb.module'));
-const FileHandler = new (require('./modules/filehandler.module'));
-const ObjHandler = new (require('./modules/objhandler.module'));
+const oldxmltext = fs.readFileSync('Vice10.ask', 'utf8');
+const newxmltext = fs.readFileSync('Vice10.ask', 'utf8');
 
-const oldxmltext = FileHandler.readFile('Vice10.ask', 'utf8');
-var oldObject = FileHandler.xml2obj(oldxmltext)
-const newxmltext = FileHandler.readFile('00Lightnew.ask', 'utf8');
-var newObject = FileHandler.xml2obj(newxmltext)
 
-console.log(ObjHandler.getDifference(newObject, oldObject))
+xml2js.parseString(`<start>
+</start>`
+,(err, data)=> {
+    Object.keys(data.start).forEach(e=>{
+        console.log(`{'${e}': ${JSON.stringify(data.start[e])}},`)
+    })    
+})
 
-// xml2js.parseString(`<start>
-// </start>`
-// ,(err, data)=> {
-//     Object.keys(data.start).forEach(e=>{
-//         console.log(`{'${e}': ${JSON.stringify(data.start[e])}},`)
-//     })    
-// })
+const rgbToHex = (r, g, b) => [r, g, b].map(x => {
+    const hex = x.toString(16)
+    return hex.length === 1 ? '0' + hex : hex
+}).join('')
+
+function rgba2hex(orig) {
+    var a, isPercent,
+      rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
+      alpha = (rgb && rgb[4] || "").trim(),
+      hex = rgb ?
+      (rgb[1] | 1 << 8).toString(16).slice(1) +
+      (rgb[2] | 1 << 8).toString(16).slice(1) +
+      (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
+
+    if (alpha !== "") {
+      a = alpha;
+    } else {
+      a = 01;
+    }
+    // multiply before convert to HEX
+    a = (a | 1 << 8).toString(16).slice(1)
+    hex = hex + a;
+  
+    return hex;
+}
 
 
 xml2js.parseString(oldxmltext, (err, xmlobj) => {
@@ -30,8 +49,8 @@ xml2js.parseString(oldxmltext, (err, xmlobj) => {
     ObjectKeys = Object.keys(xmlobj.Ableton.Theme[0]);
     ObjectKeys.forEach(element => {
         var object = xmlobj.Ableton.Theme[0][element][0]
-        if(rgba.rgbtrue(object)) {
-            var hex = rgba.rgba2hex(`rgba(${object.R[0].$.Value}, ${object.G[0].$.Value}, ${object.B[0].$.Value}, ${object.Alpha[0].$.Value})`)
+        if(rgbtrue(object)) {
+            var hex = rgba2hex(`rgba(${object.R[0].$.Value}, ${object.G[0].$.Value}, ${object.B[0].$.Value}, ${object.Alpha[0].$.Value})`)
             xmlobj.Ableton.Theme[0][element][0]={}
             xmlobj.Ableton.Theme[0][element][0].$ = {'Value': '#'+hex}
         }
@@ -99,7 +118,14 @@ xml2js.parseString(oldxmltext, (err, xmlobj) => {
     });
 });
 
-
+function rgbtrue(parse) { 
+    if (parse.R && parse.G && parse.B) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 
   
