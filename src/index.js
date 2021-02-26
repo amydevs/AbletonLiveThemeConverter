@@ -39,9 +39,11 @@ try {
 
 }
 catch(err) {
-    console.error(err)
-    process.exit(1)
+    const SecondInputBackup = new (require('./modules/secondinputbackup.module'));
+    var newObject = SecondInputBackup.backupObject
+    var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
 }
+    
 
 
 //rename to new name
