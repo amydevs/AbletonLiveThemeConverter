@@ -6,6 +6,7 @@ Example with Directories:   AbletonThemeConverter.exe ./themes/00Light.ask ./the
 
 Note:                       Please make sure that the filenames have '.ask' on the end
 
-More Notes: If you do not enter a valid path for the {Input Theme from New Version} argument, missing parts of your converted theme will be automatically filled in by parts of the Ableton Live 11 00Light theme.
-Example: AbletonThemeConverter.exe 00Light.ask TypeInAnyInvalidFileNameHere newtheme.ask <br>
-Example with Directories: AbletonThemeConverter.exe ./themes/00Light.ask hsdajshdajshdjashd ./themes/newtheme.ask
+More Notes: If you do not enter a valid path for the {Input Theme from New Version} argument, missing parts of your converted theme will be automatically filled in by parts of the Ableton Live 11 00Light theme. <br>
+
+Example:                   AbletonThemeConverter.exe 00Light.ask TypeInAnyInvalidFileNameHere newtheme.ask <br>
+Example with Directories:  AbletonThemeConverter.exe ./themes/00Light.ask hsdajshdajshdjashd ./themes/newtheme.ask
