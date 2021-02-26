@@ -26,11 +26,17 @@ try {
     const oldxmltext = FileHandler.readFile(oldinputname, 'utf8');
     var oldObject = FileHandler.xml2obj(oldxmltext)
     var oldObjectInnerReference = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]][0]
-
+}
+catch(err) {
+    console.error(err)
+    process.exit(1)
+}
+try {
     //initNewObjects
     const newxmltext = FileHandler.readFile(newinputname, 'utf8');
     var newObject = FileHandler.xml2obj(newxmltext)
     var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
+
 }
 catch(err) {
     console.error(err)
