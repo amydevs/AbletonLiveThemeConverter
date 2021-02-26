@@ -11,9 +11,12 @@ var newoutputname = args[2]
 
 if(args[0] == "-help" || args[0] == "--help" || args[0] == "-h" || args[0] == "--h" || !args[0]) {
 console.log(`
-Usage:                      AbletonThemeConverter.exe {Input File Name of Old Theme} {Input File Name of New Theme to be Merged With} {Output File Name} 
-Example:                    AbletonThemeConverter.exe 00Light.ask ./themes/00Lightnew.ask ./themes/newtheme.ask
+Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
+
+Example:                    AbletonThemeConverter.exe 00Light.ask 00Lightnew.ask newtheme.ask
 Example with Directories:   AbletonThemeConverter.exe ./themes/00Light.ask ./themes/00Lightnew.ask ./themes/newtheme.ask
+
+Note:                       Please make sure that the filenames have '.ask' on the end.
 `)
 process.exit(0)
 }
