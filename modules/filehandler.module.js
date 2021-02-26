@@ -12,5 +12,15 @@ class FileHandler {
         })
         return obj;
     }
+    obj2xml(obj) {
+        var builder = new xml2js.Builder();
+        var xml = builder.buildObject(obj);
+        return xml;
+    }
+    saveFile(filename, xml) {
+        fs.writeFile(filename, xml, function (err) {
+            if (err) return console.log(err);
+        });
+    }
 }
 module.exports = FileHandler;

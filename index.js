@@ -1,6 +1,3 @@
-const fs = require('fs');
-const xml2js = require('xml2js');
-
 const rgba = new (require('./modules/rgb.module'));
 const FileHandler = new (require('./modules/filehandler.module'));
 const ObjHandler = new (require('./modules/objhandler.module'));
@@ -50,11 +47,7 @@ newAddedValues.forEach(element => {
 })
 
 //convert back to xml
-var builder = new xml2js.Builder();
-var xml = builder.buildObject(oldObject);
-fs.writeFile('helloworld.ask', xml, function (err) {
-    if (err) return console.log(err);
-});
+FileHandler.saveFile('helloworld.ask', FileHandler.obj2xml(oldObject))
 
 
 
