@@ -8,7 +8,15 @@ var args = process.argv.slice(2);
 var oldinputname = args[0]
 var newinputname = args[1]
 var newoutputname = args[2]
-console.log(args)
+
+if(args[0] == "-help" || args[0] == "--help" || args[0] == "-h" || args[0] == "--h" || !args[0]) {
+console.log(`
+Usage:                      AbletonThemeConverter.exe {Input File Name of Old Theme} {Input File Name of New Theme to be Merged With} {Output File Name} 
+Example:                    AbletonThemeConverter.exe 00Light.ask ./themes/00Lightnew.ask ./themes/newtheme.ask
+Example with Directories:   AbletonThemeConverter.exe ./themes/00Light.ask ./themes/00Lightnew.ask ./themes/newtheme.ask
+`)
+process.exit(0)
+}
 
 try {
     //initOldObjects

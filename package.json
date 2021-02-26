@@ -1,0 +1,29 @@
+{
+  "name": "ableton-live-theme-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "domutils": "^2.4.4",
+    "htmlparser2": "^6.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jy1263/AbletonLiveThemeConverter.git"
+  },
+  "keywords": [
+    "ableton-live"
+  ],
+  "author": "ayanamy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jy1263/AbletonLiveThemeConverter/issues"
+  },
+  "homepage": "https://github.com/jy1263/AbletonLiveThemeConverter#readme"
+}
