@@ -8,10 +8,17 @@
     "htmlparser2": "^6.0.0",
     "xml2js": "^0.4.23"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "pkg": "^4.4.9"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/index.js"
+    "main": "node ./src/index.js",
+    "build": "pkg . --output ./bin/AbletonThemeConverter"
+  },
+  "bin": "src/index.js",
+  "pkg": {
+    "targets": [ "node14-macos-x64", "node14-win-x64" ]
   },
   "repository": {
     "type": "git",
