@@ -1,18 +1,33 @@
+//import modules
 const rgba = new (require('./modules/rgb.module'));
 const FileHandler = new (require('./modules/filehandler.module'));
 const ObjHandler = new (require('./modules/objhandler.module'));
 
-//initOldObjects
-const oldxmltext = FileHandler.readFile('Vice10.ask', 'utf8');
-var oldObject = FileHandler.xml2obj(oldxmltext)
-var oldObjectInnerReference = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]][0]
+//define args
+var args = process.argv.slice(2);
+var oldinputname = args[0]
+var newinputname = args[1]
+var newoutputname = args[2]
+console.log(args)
 
-//initNewObjects
-const newxmltext = FileHandler.readFile('00Lightnew.ask', 'utf8');
-var newObject = FileHandler.xml2obj(newxmltext)
-var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
+try {
+    //initOldObjects
+    const oldxmltext = FileHandler.readFile(oldinputname, 'utf8');
+    var oldObject = FileHandler.xml2obj(oldxmltext)
+    var oldObjectInnerReference = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]][0]
 
-//rename to theme
+    //initNewObjects
+    const newxmltext = FileHandler.readFile(newinputname, 'utf8');
+    var newObject = FileHandler.xml2obj(newxmltext)
+    var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
+}
+catch(err) {
+    console.error(err)
+    process.exit(1)
+}
+
+
+//rename to new name
 oldObject.Ableton[Object.keys(newObject.Ableton)[1]] = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]];
 delete oldObject.Ableton[Object.keys(oldObject.Ableton)[1]];
 
@@ -47,7 +62,7 @@ newAddedValues.forEach(element => {
 })
 
 //convert back to xml
-FileHandler.saveFile('helloworld.ask', FileHandler.obj2xml(oldObject))
+FileHandler.saveFile(newoutputname, FileHandler.obj2xml(oldObject))
 
 
 
