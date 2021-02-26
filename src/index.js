@@ -9,6 +9,7 @@ var oldinputname = args[0]
 var newinputname = args[1]
 var newoutputname = args[2]
 
+//Help argument handling
 if(args[0] == "-help" || args[0] == "--help" || args[0] == "-h" || args[0] == "--h" || !args[0]) {
 console.log(`
 Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
@@ -21,6 +22,7 @@ Note:                       Please make sure that the filenames have '.ask' on t
 process.exit(0)
 }
 
+//Init objects from xml
 try {
     //initOldObjects
     const oldxmltext = FileHandler.readFile(oldinputname, 'utf8');
@@ -39,6 +41,7 @@ try {
 
 }
 catch(err) {
+    //If cannot be found, Live 11 Light theme will be used as the backup.
     const SecondInputBackup = new (require('./modules/secondinputbackup.module'));
     var newObject = SecondInputBackup.backupObject
     var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
