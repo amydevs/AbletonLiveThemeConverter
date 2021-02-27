@@ -14,11 +14,11 @@ AltC is a command line tool (currently) built in NodeJS that converts Ableton Li
 
 ## Usage if Second Input File is Unavailable
 More Notes:                 If you do not enter a valid path for the {Input Theme from New Version} argument, missing parts of your converted theme will be automatically filled in by parts of the Ableton Live 11 00Light theme. <br>
-
 |Info|Command|
 |-|-|
 |Example:                   |`AbletonThemeConverter.exe 00Light.ask TypeInAnyInvalidFileNameHere newtheme.ask`|
 |Example with Directories:  |`AbletonThemeConverter.exe ./themes/00Light.ask hsdajshdajshdjashd ./themes/newtheme.ask`|
+<br>
 
 ## GUI Web Version:
 https://ayanamy.is-a.dev/AbletonLiveThemeConverter/
