@@ -1,4 +1,5 @@
-# Ableton Live Theme Converter (AltC)
+# Ableton Live Theme Converter (AltC) <br>
+
 ## About
 AltC is a command line tool (currently) built in NodeJS that converts Ableton Live <=10 themes to the new format of Ableton Live 11 themes. It does this by updating the schema of the XML files, as well as translating all the original RGBA values to hex values.
 <br>
