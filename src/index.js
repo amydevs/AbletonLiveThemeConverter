@@ -2,6 +2,7 @@
 const rgba = new (require('./modules/rgb.module'));
 const FileHandler = new (require('./modules/filehandler.module'));
 const ObjHandler = new (require('./modules/objhandler.module'));
+const version = require('../package.json').version
 
 //define args
 var args = process.argv.slice(2);
@@ -12,7 +13,7 @@ var newoutputname = args[2]
 //Help argument handling
 if(args[0] == "-help" || args[0] == "--help" || args[0] == "-h" || args[0] == "--h" || !args[0]) {
 console.log(
-`Ableton Live Theme Converter (AltC) - Version ${process.env.npm_package_version}
+`Ableton Live Theme Converter (AltC) - Version ${version}
 Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
 
 Example:                    AbletonThemeConverter.exe 00Light.ask 00Lightnew.ask newtheme.ask
