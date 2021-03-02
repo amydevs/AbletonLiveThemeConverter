@@ -1,7 +1,11 @@
 const fs = require('fs');
+const path = require('path');
 const xml2js = require('xml2js');
 
 class FileHandler {
+    constructor() {
+        this.path = path;
+    }
     readFile(filename) {
         return fs.readFileSync(filename, 'utf8');
     }

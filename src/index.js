@@ -11,14 +11,15 @@ var newoutputname = args[2]
 
 //Help argument handling
 if(args[0] == "-help" || args[0] == "--help" || args[0] == "-h" || args[0] == "--h" || !args[0]) {
-console.log(`
+console.log(
+`Ableton Live Theme Converter (AltC) - Version ${process.env.npm_package_version}
 Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
 
 Example:                    AbletonThemeConverter.exe 00Light.ask 00Lightnew.ask newtheme.ask
 Example with Directories:   AbletonThemeConverter.exe ./themes/00Light.ask ./themes/00Lightnew.ask ./themes/newtheme.ask
 
-Note:                       Please make sure that the filenames have '.ask' on the end.
-`)
+Note:                       Please make sure that the filenames have '.ask' on the end.`
+)
 process.exit(0)
 }
 
@@ -41,6 +42,7 @@ try {
 catch(err) {
     //If cannot be found, Live 11 Light theme will be used as the backup.
     var newObject = (new (require('./modules/polyfill/polyfillbackup.module'))).backupObject
+    console.log('Notice: Your second input was invalid, your output theme will be polyfilled using the default Light Theme.')
 }
 var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]]
 
@@ -80,6 +82,7 @@ newAddedValues.forEach(element => {
 
 //convert back to xml
 FileHandler.saveFile(newoutputname, FileHandler.obj2xml(oldObject))
+console.log(`Done! Output file in "${FileHandler.path.resolve(newoutputname)}"`)
 
 //Polyfill Converter:
 // const PolyFillHandler = new (require('./modules/polyfill/polyfillhandler.module'))
