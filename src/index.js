@@ -2,7 +2,7 @@
 const rgba = new (require('./modules/rgb.module'));
 const FileHandler = new (require('./modules/filehandler.module'));
 const ObjHandler = new (require('./modules/objhandler.module'));
-const version = require('../package.json').version
+const { version } = require('../package.json');
 
 //define args
 var args = process.argv.slice(2);
