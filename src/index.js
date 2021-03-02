@@ -40,8 +40,7 @@ try {
 }
 catch(err) {
     //If cannot be found, Live 11 Light theme will be used as the backup.
-    const SecondInputBackup = new (require('./modules/secondinputbackup.module'));
-    var newObject = SecondInputBackup.backupObject
+    var newObject = (new (require('./modules/polyfill/polyfillbackup.module'))).backupObject
 }
 var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]]
 

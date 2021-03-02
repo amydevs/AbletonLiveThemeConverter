@@ -1,4 +1,4 @@
-class SecondInputBackup {
+class PolyFillBackup {
   constructor() {
     this.backupObject = {
       "Ableton": {
@@ -578,4 +578,4 @@ class SecondInputBackup {
     // End
   }
 }
-module.exports = SecondInputBackup;
+module.exports = PolyFillBackup;
