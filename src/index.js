@@ -27,7 +27,7 @@ try {
     //initOldObjects
     const oldxmltext = FileHandler.readFile(oldinputname, 'utf8');
     var oldObject = FileHandler.xml2obj(oldxmltext)
-    var oldObjectInnerReference = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]][0]
+    var oldObjectInnerReference = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]]
 }
 catch(err) {
     console.error(err)
@@ -37,24 +37,20 @@ try {
     //initNewObjects
     const newxmltext = FileHandler.readFile(newinputname, 'utf8');
     var newObject = FileHandler.xml2obj(newxmltext)
-    var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
-
 }
 catch(err) {
     //If cannot be found, Live 11 Light theme will be used as the backup.
     const SecondInputBackup = new (require('./modules/secondinputbackup.module'));
     var newObject = SecondInputBackup.backupObject
-    var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]][0]
 }
-    
-
+var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1]]
 
 //rename to new name
-oldObject.Ableton[Object.keys(newObject.Ableton)[1]] = oldObject.Ableton[Object.keys(oldObject.Ableton)[1]];
-delete oldObject.Ableton[Object.keys(oldObject.Ableton)[1]];
+oldObject.Ableton[Object.keys(newObject.Ableton)[1]] = oldObjectInnerReference;
+delete oldObjectInnerReference;
 
 //edit rgb values
-ObjectKeys = Object.keys(oldObject.Ableton.Theme[0]);
+var ObjectKeys = Object.keys(oldObject.Ableton.Theme[0]);
 ObjectKeys.forEach(element => {
     var object = oldObject.Ableton.Theme[0][element][0]
     if(rgba.rgbtrue(object)) {
@@ -73,7 +69,7 @@ oldObject.Ableton.$.Creator=newObject.Ableton.$.Creator
 var newAddedValues = [];
 ObjHandler.getDifference(newObject, oldObject).forEach(e=> {
     let newobj = {}
-    newobj[e] = newObjectInnerReference[e]
+    newobj[e] = newObjectInnerReference[0][e]
     // var string = `{'${e}': ${JSON.stringify(newObjectInnerReference[e])}},`
     newAddedValues.push(newobj);
 })
