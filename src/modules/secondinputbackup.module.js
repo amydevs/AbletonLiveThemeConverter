@@ -67,6 +67,27 @@ class SecondInputBackup {
                 }
               }
             ],
+            "GridLineBase": [
+              {
+                "$": {
+                  "Value": "#00000031"
+                }
+              }
+            ],
+            "NonEditableAutomationAlpha": [
+              {
+                "$": {
+                  "Value": "127"
+                }
+              }
+            ],
+            "DisabledContextMenuIconAlpha": [
+              {
+                "$": {
+                  "Value": "85"
+                }
+              }
+            ],
             "ClipBorderAlpha": [
               {
                 "$": {
@@ -197,6 +218,55 @@ class SecondInputBackup {
               {
                 "$": {
                   "Value": "20"
+                }
+              }
+            ],
+            "Modulation": [
+              {
+                "$": {
+                  "Value": "#3b93e7"
+                }
+              }
+            ],
+            "ModulationDisabled": [
+              {
+                "$": {
+                  "Value": "#b2b2b2"
+                }
+              }
+            ],
+            "ModulationMouseOver": [
+              {
+                "$": {
+                  "Value": "#006dd6"
+                }
+              }
+            ],
+            "AutomationTransformToolFrame": [
+              {
+                "$": {
+                  "Value": "#00000080"
+                }
+              }
+            ],
+            "AutomationTransformToolFrameActive": [
+              {
+                "$": {
+                  "Value": "#000000"
+                }
+              }
+            ],
+            "AutomationTransformToolHandle": [
+              {
+                "$": {
+                  "Value": "#00000080"
+                }
+              }
+            ],
+            "AutomationTransformToolHandleActive": [
+              {
+                "$": {
+                  "Value": "#000000"
                 }
               }
             ],
@@ -505,6 +575,7 @@ class SecondInputBackup {
         ]
       }
     }
+    // End
   }
 }
 module.exports = SecondInputBackup;
