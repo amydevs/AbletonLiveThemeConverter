@@ -47,7 +47,7 @@ var newObjectInnerReference = newObject.Ableton[Object.keys(newObject.Ableton)[1
 
 //rename to new name
 oldObject.Ableton[Object.keys(newObject.Ableton)[1]] = oldObjectInnerReference;
-delete oldObjectInnerReference;
+delete oldObject.Ableton[Object.keys(oldObject.Ableton)[1]];
 
 //edit rgb values
 var ObjectKeys = Object.keys(oldObject.Ableton.Theme[0]);
