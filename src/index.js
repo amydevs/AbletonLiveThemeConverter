@@ -73,6 +73,14 @@ ObjHandler.getDifference(newObject, oldObject).forEach(e=> {
     // var string = `{'${e}': ${JSON.stringify(newObjectInnerReference[e])}},`
     newAddedValues.push(newobj);
 })
+  
+newAddedValues.forEach(element => {
+    var elementKey = Object.keys(element)[0]
+    oldObject.Ableton.Theme[0][elementKey] = element[elementKey];
+})
+
+//convert back to xml
+FileHandler.saveFile(newoutputname, FileHandler.obj2xml(oldObject))
 
 // //Polyfill Converter
 // let defaultObject = {
@@ -91,14 +99,6 @@ ObjHandler.getDifference(newObject, oldObject).forEach(e=> {
 // }, {});
 // defaultObject.Ableton['Theme'] = [newObjectofValues]
 // FileHandler.saveFile('./src/backupJsons/00LightPolyfill.json', JSON.stringify(defaultObject, null, 2))
-  
-newAddedValues.forEach(element => {
-    var elementKey = Object.keys(element)[0]
-    oldObject.Ableton.Theme[0][elementKey] = element[elementKey];
-})
-
-//convert back to xml
-FileHandler.saveFile(newoutputname, FileHandler.obj2xml(oldObject))
 
 
 
