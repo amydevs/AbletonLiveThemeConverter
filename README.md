@@ -20,6 +20,8 @@ More Notes:                 If you do not enter a valid path for the {Input Them
 |Example:                   |`AbletonThemeConverter.exe 00Light.ask TypeInAnyInvalidFileNameHere newtheme.ask`|
 |Example with Directories:  |`AbletonThemeConverter.exe ./themes/00Light.ask hsdajshdajshdjashd ./themes/newtheme.ask`|
 <br>
+To bring up the help page you can run `AbletonThemeConverter.exe -h`
+<br>
 
 ## GUI Web Version:
 https://ayanamy.is-a.dev/AbletonLiveThemeConverter/

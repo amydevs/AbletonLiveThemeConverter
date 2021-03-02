@@ -14,10 +14,17 @@ var newoutputname = args[2]
 if(args[0] == "-help" || args[0] == "--help" || args[0] == "-h" || args[0] == "--h" || !args[0]) {
 console.log(
 `Ableton Live Theme Converter (AltC) - Version ${version}
-Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
 
+Basic Usage:
+Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
 Example:                    AbletonThemeConverter.exe 00Light.ask 00Lightnew.ask newtheme.ask
 Example with Directories:   AbletonThemeConverter.exe ./themes/00Light.ask ./themes/00Lightnew.ask ./themes/newtheme.ask
+
+Usage if Second Input File is Unavailable:  
+If you do not enter a valid path for the {Input Theme from New Version} argument, missing parts of your converted theme will be automatically filled in by parts of the default Light theme.
+Usage:                      AbletonThemeConverter.exe {Input Theme from Old Version} {Input Theme from New Version} {Output File Name} 
+Example:                    AbletonThemeConverter.exe 00Light.ask TypeInAnyInvalidFileNameHere newtheme.ask
+Example with Directories:   AbletonThemeConverter.exe ./themes/00Light.ask hsdajshdajshdjashd ./themes/newtheme.ask
 
 Note:                       Please make sure that the filenames have '.ask' on the end.`
 )
