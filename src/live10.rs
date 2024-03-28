@@ -189,50 +189,24 @@ pub struct SkinManager {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Ableton {
     #[serde(rename = "@MajorVersion")]
-    major_version: Option<String>,
+    pub major_version: Option<String>,
     #[serde(rename = "@MinorVersion")]
-    minor_version: Option<String>,
+    pub minor_version: Option<String>,
     #[serde(rename = "@SchemaChangeCount")]
-    schema_change_count: Option<String>,
+    pub schema_change_count: Option<String>,
     #[serde(rename = "@Creator")]
-    creator: Option<String>,
+    pub creator: Option<String>,
     #[serde(rename = "@Revision")]
-    revision: Option<String>,
+    pub revision: Option<String>,
     #[serde(rename = "SkinManager")]
-    skin_manager: Option<SkinManager>,
+    pub skin_manager: Option<SkinManager>,
 }
 
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
 
-    use super::{ValueWrapper, RGBAColor, Ableton};
-    #[test]
-    fn value_wrapper() {
-        let rgba_value: ValueWrapper<u8> = from_str(
-            r#"
-            <Alpha Value="90"/>
-            "#,
-        ).unwrap();
-        assert_eq!(rgba_value.value, 90);
-    }
-    #[test]
-    fn rgba() {
-        let rgba: RGBAColor = from_str(
-            r#"
-            <ControlForeground>
-                <R Value="1"/>
-                <G Value="2"/>
-                <B Value="3"/>
-                <Alpha Value="4"/>
-            </ControlForeground>
-            "#,
-        ).unwrap();
-        assert_eq!(rgba.r.value, 1);
-        assert_eq!(rgba.g.value, 2);
-        assert_eq!(rgba.b.value, 3);
-        assert_eq!(rgba.a.value, 4);
-    }
+    use super::Ableton;
     #[test]
     fn ableton() {
         let ableton: Ableton = from_str(include_str!("../test_themes/blank_10.ask")).unwrap();

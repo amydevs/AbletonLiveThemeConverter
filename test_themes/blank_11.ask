@@ -200,7 +200,7 @@
 		<Modulation Value="#000000ff" />
 		<ModulationDisabled Value="#000000ff" />
 		<ModulationMouseOver Value="#000000ff" />
-		<AutomationTransformToolFrame Value="f9a71940" />
+		<AutomationTransformToolFrame Value="#000000ff" />
 		<AutomationTransformToolFrameActive Value="#000000ff" />
 		<AutomationTransformToolHandle Value="#000000ff" />
 		<AutomationTransformToolHandleActive Value="#000000ff" />

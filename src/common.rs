@@ -113,6 +113,20 @@ impl Serialize for HexColor
     }
 }
 
+impl Into<HexColor> for RGBAColor {
+    fn into(self) -> HexColor {
+        let color: Color = self.into();
+        color.into()
+    }
+}
+
+impl Into<RGBAColor> for HexColor {
+    fn into(self) -> RGBAColor {
+        let color: Color = self.into();
+        color.into()
+    }
+}
+
 impl<'de> Deserialize<'de> for HexColor {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where

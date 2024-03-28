@@ -173,12 +173,12 @@ pub struct Theme {
     pub warper_time_bar_marker_background: Option<HexColor>,
     pub min_velocity_note_blend_factor: Option<ValueWrapper<f32>>,
     pub striped_background_shade_factor: Option<ValueWrapper<f32>>,
-    pub non_editable_automation_alpha: Option<ValueWrapper<i32>>,
-    pub disabled_context_menu_icon_alpha: Option<ValueWrapper<i32>>,
-    pub clip_border_alpha: Option<ValueWrapper<i32>>,
-    pub scroll_bar_alpha: Option<ValueWrapper<i32>>,
-    pub scroll_bar_on_hover_alpha: Option<ValueWrapper<i32>>,
-    pub scroll_bar_background_alpha: Option<ValueWrapper<i32>>,
+    pub non_editable_automation_alpha: Option<ValueWrapper<u8>>,
+    pub disabled_context_menu_icon_alpha: Option<ValueWrapper<u8>>,
+    pub clip_border_alpha: Option<ValueWrapper<u8>>,
+    pub scroll_bar_alpha: Option<ValueWrapper<u8>>,
+    pub scroll_bar_on_hover_alpha: Option<ValueWrapper<u8>>,
+    pub scroll_bar_background_alpha: Option<ValueWrapper<u8>>,
     pub inaudible_take_lightness: Option<ValueWrapper<f32>>,
     pub inaudible_take_saturation: Option<ValueWrapper<f32>>,
     pub inaudible_take_name_lightness: Option<ValueWrapper<f32>>,
@@ -225,7 +225,7 @@ pub struct Theme {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Meter {
-    pub only_minimum_to_maximum: Option<bool>,
+    pub only_minimum_to_maximum: Option<ValueWrapper<bool>>,
     pub maximum: Option<HexColor>,
     pub above_zero_decibel: Option<HexColor>,
     pub zero_decibel: Option<HexColor>,
@@ -237,15 +237,32 @@ pub struct Meter {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Ableton {
     #[serde(rename = "@MajorVersion")]
-    major_version: Option<String>,
+    pub major_version: Option<String>,
     #[serde(rename = "@MinorVersion")]
-    minor_version: Option<String>,
+    pub minor_version: Option<String>,
     #[serde(rename = "@SchemaChangeCount")]
-    schema_change_count: Option<String>,
+    pub schema_change_count: Option<String>,
     #[serde(rename = "@Creator")]
-    creator: Option<String>,
+    pub creator: Option<String>,
     #[serde(rename = "@Revision")]
-    revision: Option<String>,
+    pub revision: Option<String>,
     #[serde(rename = "Theme")]
-    theme: Option<Theme>,
+    pub theme: Option<Theme>,
+}
+
+#[cfg(test)]
+mod tests {
+    use quick_xml::de::from_str;
+
+    use super::Ableton;
+    #[test]
+    fn meter() {
+        let meter: Ableton = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
+        assert_eq!(meter.theme.unwrap().standard_vu_meter.only_minimum_to_maximum.unwrap().value, false);
+    }
+    #[test]
+    fn ableton() {
+        let ableton: Ableton = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
+        assert_eq!(ableton.major_version, Some("5".to_string()));
+    }
 }
