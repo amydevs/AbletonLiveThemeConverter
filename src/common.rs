@@ -189,5 +189,6 @@ mod tests {
         assert_eq!(hex2.value.r, 1);
         assert_eq!(hex2.value.g, 2);
         assert_eq!(hex2.value.b, 3);
+        assert_eq!(hex2.value.a, 255);
     }
 }

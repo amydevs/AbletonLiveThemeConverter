@@ -16,7 +16,9 @@ pub struct SkinManager {
     pub scrollbar_inner_track: Option<RGBAColor>,
     pub scrollbar_outer_handle: Option<RGBAColor>,
     pub scrollbar_outer_track: Option<RGBAColor>,
+    #[serde(rename = "ScrollbarLCDHandle")]
     pub scrollbar_lcd_handle: Option<RGBAColor>,
+    #[serde(rename = "ScrollbarLCDTrack")]
     pub scrollbar_lcd_track: Option<RGBAColor>,
     pub detail_view_background: Option<RGBAColor>,
     pub preferences_tab: Option<RGBAColor>,
