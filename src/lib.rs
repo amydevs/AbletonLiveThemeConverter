@@ -7,9 +7,9 @@ pub mod live11;
 impl Into<live10::Ableton> for live11::Ableton {
     fn into(self) -> live10::Ableton {
         live10::Ableton {
-            major_version: self.major_version,
-            minor_version: self.minor_version,
-            schema_change_count: self.schema_change_count,
+            major_version: Some("5".to_owned()),
+            minor_version: Some("10.0_373".to_owned()),
+            schema_change_count: Some("1".to_owned()),
             creator: self.creator,
             revision: self.revision,
             skin_manager: self.theme.and_then(|v| Some(v.into())),
@@ -214,6 +214,7 @@ mod tests {
         let ableton11: live11::Ableton = from_str(include_str!("../temp/live11/Discord Legacy.ask")).unwrap();
         let ableton10: live10::Ableton = ableton11.into();
         let mut file = File::create("Discord Legacy.ask").unwrap();
+        file.write_all(b"<?xml version=\"1.0\" encoding=\"UTF-8\"?>").unwrap();
         file.write_all(to_string(&ableton10).unwrap().as_bytes()).unwrap();
     }
 }
