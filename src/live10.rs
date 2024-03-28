@@ -21,7 +21,7 @@ impl Default for RGBA {
             r: ValueWrapper { value: 0 },
             g: ValueWrapper { value: 0 },
             b: ValueWrapper { value: 0 },
-            alpha: ValueWrapper { value: 0 },
+            alpha: ValueWrapper { value: 255 },
         }
     }
 }
@@ -227,8 +227,6 @@ pub struct Ableton {
 
 #[cfg(test)]
 mod tests {
-    use std::slice::from_raw_parts;
-
     use quick_xml::de::from_str;
 
     use super::{ValueWrapper, RGBA, Ableton};
