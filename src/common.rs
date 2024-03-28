@@ -143,43 +143,6 @@ impl<'de> Deserialize<'de> for HexColor {
     }
 }
 
-// impl<'de> Deserialize<'de> for HexColor {
-//     fn deserialize<D>(deserializer: D) -> Result<HexColor, D::Error>
-//     where
-//         D: Deserializer<'de>,
-//     {
-//         #[derive(Deserialize)]
-//         struct Helper {
-//             #[serde(rename = "@Value")]
-//             value: String
-//         }
-//         struct HexColorVisitor;
-
-//         impl<'de> de::Visitor<'de> for HexColorVisitor {
-//             type Value = HexColor;
-    
-//             fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-//                 formatter.write_str("a string in the format #rrggbbaa")
-//             }
-    
-//             fn visit_str<E>(self, value: &str) -> Result<Self::Value, E>
-//             where
-//                 E: de::Error,
-//             {
-//                 if value.starts_with('#') && value.len() == 9 {
-//                     let mut color = Color::default();
-//                     color.r = u8::from_str_radix(&value[1..3], 16).unwrap_or(color.r);
-//                     color.g = u8::from_str_radix(&value[3..5], 16).unwrap_or(color.g);
-//                     color.b = u8::from_str_radix(&value[5..7], 16).unwrap_or(color.b);
-//                     color.a = u8::from_str_radix(&value[7..9], 16).unwrap_or(color.a);
-//                     return Ok(HexColor { value: color });
-//                 }
-//                 Err(E::custom(format!("String does not match the #rrggbbaa format: {}", value)))
-//             }
-//         }
-//     }
-// }
-
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
