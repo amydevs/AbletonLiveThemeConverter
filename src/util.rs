@@ -1,6 +1,7 @@
 use regex::Regex;
 use quick_xml::{de::from_str, se::Serializer, DeError};
 use serde::Serialize;
+use wasm_bindgen::prelude::*;
 
 
 use crate::live11;
@@ -9,12 +10,14 @@ use crate::live10;
 
 pub const LIVE_REGEX_STRING: &str = r#"MinorVersion\s*=\s*"(\S+)""#;
 
+#[wasm_bindgen]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LiveVersion {
     Live10 = 10,
     Live11 = 11,
 }
 
+#[wasm_bindgen()]
 pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     let re = Regex::new(LIVE_REGEX_STRING).unwrap();
     let caps = re.captures(xml).unwrap();
@@ -63,10 +66,21 @@ pub fn convert(live: LiveWrapper, version: LiveVersion) -> LiveWrapper {
     }
 }
 
-pub fn convert_ask(xml: &str, version: LiveVersion) -> Result<String, DeError> {
-    let live = parse_ask(xml, version.clone())?;
-    let converted = convert(live, version);
+fn convert_ask_internal(xml: &str, from_version: LiveVersion, to_version: LiveVersion) -> Result<String, DeError> {
+    let live = parse_ask(xml, from_version)?;
+    let converted = convert(live, to_version);
     generate_ask(&converted)
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn convert_ask(xml: &str, from_version: LiveVersion, to_version: LiveVersion) -> Result<String, DeError> {
+    convert_ask_internal(xml, from_version, to_version)
+}
+
+#[cfg(target_arch = "wasm32")]
+#[wasm_bindgen]
+pub fn convert_ask(xml: &str, from_version: LiveVersion, to_version: LiveVersion) -> Result<String, JsError> {
+    Ok(convert_ask_internal(xml, from_version, to_version)?)
 }
 
 #[cfg(test)]

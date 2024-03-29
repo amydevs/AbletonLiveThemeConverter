@@ -21,3 +21,4 @@ quick-xml = { version = "0.31.0", features = ["serialize"] }
 regex = "1.10.4"
 serde = { version = "1.0.197", features = ["derive"] }
 clap = { version = "4.5.4", features = ["derive"] , optional = true }
+wasm-bindgen = "0.2.92"
