@@ -1,6 +1,7 @@
 use common::{HexColor, ValueWrapper};
 
 pub mod common;
+pub mod util;
 pub mod live10;
 pub mod live11;
 
@@ -202,6 +203,18 @@ impl Into<live10::SkinManager> for live11::Theme {
     }
 }
 
+impl Into<live11::Ableton> for live10::Ableton {
+    fn into(self) -> live11::Ableton {
+        live11::Ableton {
+            major_version: Some("5".to_owned()),
+            minor_version: Some("11.0_432".to_owned()),
+            schema_change_count: Some("3".to_owned()),
+            creator: self.creator,
+            revision: self.revision,
+            theme: self.skin_manager.and_then(|v| Some(v.into())),
+        }
+    }
+}
 
 impl Into<live11::Theme> for live10::SkinManager {
     fn into(self) -> live11::Theme {
