@@ -9,7 +9,7 @@ use crate::live10;
 
 pub const LIVE_REGEX_STRING: &str = r#"MinorVersion\s*=\s*"(\S+)""#;
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LiveVersion {
     Live10 = 10,
     Live11 = 11,
@@ -32,7 +32,7 @@ pub enum LiveWrapper {
     Live11(live11::Ableton),
 }
 
-pub fn parse_ask(xml: &str, version: &LiveVersion) -> Result<LiveWrapper, DeError> {
+pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, DeError> {
     match version {
         LiveVersion::Live10 => Ok(LiveWrapper::Live10(from_str(xml)?)),
         LiveVersion::Live11 => Ok(LiveWrapper::Live11(from_str(xml)?)),
@@ -50,7 +50,7 @@ pub fn generate_ask(live: &LiveWrapper) -> Result<String, DeError> {
     Ok(buffer)
 }
 
-pub fn convert(live: LiveWrapper, version: &LiveVersion) -> LiveWrapper {
+pub fn convert(live: LiveWrapper, version: LiveVersion) -> LiveWrapper {
     match version {
         LiveVersion::Live10 => match live {
             LiveWrapper::Live11(live11) => LiveWrapper::Live10(live11.into()),
@@ -63,8 +63,8 @@ pub fn convert(live: LiveWrapper, version: &LiveVersion) -> LiveWrapper {
     }
 }
 
-pub fn convert_ask(xml: &str, version: &LiveVersion) -> Result<String, DeError> {
-    let live = parse_ask(xml, version)?;
+pub fn convert_ask(xml: &str, version: LiveVersion) -> Result<String, DeError> {
+    let live = parse_ask(xml, version.clone())?;
     let converted = convert(live, version);
     generate_ask(&converted)
 }
@@ -89,7 +89,7 @@ mod tests {
         ];
         for xml in xmls {
             let version = super::get_live_version(xml).unwrap();
-            let live = super::parse_ask(xml, &version).unwrap();
+            let live = super::parse_ask(xml, version).unwrap();
             match live {
                 LiveWrapper::Live10(_) => (),
                 LiveWrapper::Live11(_) => (),

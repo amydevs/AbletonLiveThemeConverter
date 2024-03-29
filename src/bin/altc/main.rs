@@ -50,14 +50,14 @@ fn main() {
             },
         },
     };
-    let parsed_ask = match util::parse_ask(&ask_file, &from_version) {
+    let parsed_ask = match util::parse_ask(&ask_file, from_version) {
         Ok(ask) => ask,
         Err(_) => {
             eprintln!("Could not parse .ask theme file: {}", &args.ask_path);
             return;
         },
     };
-    let converted_ask = util::convert(parsed_ask, &args.to_version);
+    let converted_ask = util::convert(parsed_ask, args.to_version);
     let generated_ask = match util::generate_ask(&converted_ask) {
         Ok(ask) => ask,
         Err(_) => {
