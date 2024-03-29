@@ -213,13 +213,13 @@ pub struct Theme {
     pub linked_track_hover: Option<HexColor>,
     pub expression_lane_header_highlight: Option<HexColor>,
     pub zoom_pan_handle: Option<HexColor>,
-    pub standard_vu_meter: Meter,
-    pub overload_vu_meter: Meter,
-    pub disabled_vu_meter: Meter,
-    pub headphones_vu_meter: Meter,
-    pub sends_only_vu_meter: Meter,
-    pub bipolar_gain_reduction_vu_meter: Meter,
-    pub orange_vu_meter: Meter,
+    pub standard_vu_meter: Option<Meter>,
+    pub overload_vu_meter: Option<Meter>,
+    pub disabled_vu_meter: Option<Meter>,
+    pub headphones_vu_meter: Option<Meter>,
+    pub sends_only_vu_meter: Option<Meter>,
+    pub bipolar_gain_reduction_vu_meter: Option<Meter>,
+    pub orange_vu_meter: Option<Meter>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -246,7 +246,7 @@ mod tests {
     #[test]
     fn meter() {
         let meter: Ableton = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
-        assert_eq!(meter.theme.unwrap().standard_vu_meter.only_minimum_to_maximum.unwrap().value, false);
+        assert_eq!(meter.theme.unwrap().standard_vu_meter.unwrap().only_minimum_to_maximum.unwrap().value, false);
     }
     #[test]
     fn ableton() {

@@ -1,6 +1,6 @@
 use altc::util;
 use clap::Parser;
-use std::{fs, io::Write};
+use std::{fs, path, io::Write};
 
 pub fn parse_live_version(s: &str) -> Result<util::LiveVersion, String> {
     match s.parse::<u8>() {
@@ -50,10 +50,13 @@ fn main() {
             },
         },
     };
+    eprintln!("Detected Ableton Live version: {}", from_version as u8);
+
     let parsed_ask = match util::parse_ask(&ask_file, from_version) {
         Ok(ask) => ask,
-        Err(_) => {
+        Err(err) => {
             eprintln!("Could not parse .ask theme file: {}", &args.ask_path);
+            eprintln!("Error: {}", err.to_string());
             return;
         },
     };
@@ -66,7 +69,18 @@ fn main() {
         },
     };
 
-    let output_path = args.output_path.unwrap_or_else(|| format!("{}.converted.ask", &args.ask_path));
+    let output_path = args.output_path.unwrap_or_else(|| {
+        let path = path::Path::new(&args.ask_path);
+        let mut output = String::new();
+        if let Some(parent) = path.parent() {
+            output.push_str(parent.to_str().unwrap());
+            output.push_str("/");
+        }
+        // this should never fail, because it must be a file
+        output += &format!("{}.converted.ask", path.file_stem().unwrap().to_str().unwrap());
+        output
+    });
+    eprintln!("Writing converted .ask theme file to: {}", &output_path);
 
     let write_file_result = fs::OpenOptions::new()
         .write(true)

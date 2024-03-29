@@ -43,7 +43,7 @@ pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, DeError
 }
 
 pub fn generate_ask(live: &LiveWrapper) -> Result<String, DeError> {
-    let mut buffer = String::new();
+    let mut buffer = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".to_string();
     let mut ser = Serializer::new(&mut buffer);
     ser.indent('\t', 1);
     match live {
