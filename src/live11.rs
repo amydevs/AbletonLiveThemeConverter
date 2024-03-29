@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use crate::common::{ValueWrapper, HexColor};
+use crate::common::{ValueWrapper, HexColor, Meter};
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
@@ -220,18 +220,6 @@ pub struct Theme {
     pub sends_only_vu_meter: Meter,
     pub bipolar_gain_reduction_vu_meter: Meter,
     pub orange_vu_meter: Meter,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-#[serde(rename_all = "PascalCase")]
-pub struct Meter {
-    pub only_minimum_to_maximum: Option<ValueWrapper<bool>>,
-    pub maximum: Option<HexColor>,
-    pub above_zero_decibel: Option<HexColor>,
-    pub zero_decibel: Option<HexColor>,
-    pub below_zero_decibel1: Option<HexColor>,
-    pub below_zero_decibel2: Option<HexColor>,
-    pub minimum: Option<HexColor>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]

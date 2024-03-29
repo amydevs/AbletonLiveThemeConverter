@@ -417,13 +417,13 @@ impl Into<live11::Theme> for live10::SkinManager {
             linked_track_hover: self.linked_track_hover.and_then(|v| Some(v.into())),
             expression_lane_header_highlight: self.surface_highlight.and_then(|v| Some(v.into())),
             zoom_pan_handle: self.zoom_pan_handle.and_then(|v| Some(v.into())),
-            standard_vu_meter: self.standard_vu_meter.and_then(|v| Some(v.into())),
-            overload_vu_meter: self.overload_vu_meter.and_then(|v| Some(v.into())),
-            disabled_vu_meter: self.disabled_vu_meter.and_then(|v| Some(v.into())),
-            headphones_vu_meter: self.headphones_vu_meter.and_then(|v| Some(v.into())),
-            sends_only_vu_meter: self.sends_only_vu_meter.and_then(|v| Some(v.into())),
-            bipolar_gain_reduction_vu_meter: self.bipolar_gain_reduction_vu_meter.and_then(|v| Some(v.into())),
-            orange_vu_meter: self.orange_vu_meter.and_then(|v| Some(v.into())),
+            standard_vu_meter: common::Meter::default_standard_vu_meter(),
+            overload_vu_meter: common::Meter::default_overlad_vu_meter(),
+            disabled_vu_meter: common::Meter::default_disabled_vu_meter(),
+            headphones_vu_meter: common::Meter::default_headphones_vu_meter(),
+            sends_only_vu_meter: common::Meter::default_sends_only_vu_meter(),
+            bipolar_gain_reduction_vu_meter: common::Meter::default_bipolar_gain_reduction_vu_meter(),
+            orange_vu_meter: common::Meter::default_orange_vu_meter(),
         }
     }
 }

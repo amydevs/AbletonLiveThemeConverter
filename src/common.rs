@@ -157,6 +157,214 @@ impl<'de> Deserialize<'de> for HexColor {
     }
 }
 
+
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "PascalCase")]
+pub struct Meter {
+    pub only_minimum_to_maximum: Option<ValueWrapper<bool>>,
+    pub maximum: Option<HexColor>,
+    pub above_zero_decibel: Option<HexColor>,
+    pub zero_decibel: Option<HexColor>,
+    /// This is always none is only_minimum_to_maximum is true.
+    pub below_zero_decibel1: Option<HexColor>,
+    /// This is always none is only_minimum_to_maximum is true.
+    pub below_zero_decibel2: Option<HexColor>,
+    pub minimum: Option<HexColor>,
+}
+
+
+impl Meter {
+    pub fn default_standard_vu_meter() ->  Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: false }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 10, b: 10, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 208, b: 10, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 198, g: 248, b: 100, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 10, g: 248, b: 100, a: 255
+                }
+            }),
+        }
+    }
+    pub fn default_overlad_vu_meter() ->  Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: true }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 10, b: 10, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 255, b: 255, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 255, b: 255, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 175, g: 10, b: 10, a: 255
+                }
+            }),
+        }
+    }
+    pub fn default_disabled_vu_meter() ->  Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: false }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 10, b: 10, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 208, b: 10, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 130, g: 130, b: 130, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 110, g: 110, b: 110, a: 255
+                }
+            }),
+        }
+    }
+    pub fn default_headphones_vu_meter() ->  Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: false }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 165, g: 165, b: 241, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 144, g: 170, b: 236, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 144, g: 170, b: 236, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 10, g: 255, b: 255, a: 255
+                }
+            }),
+        }
+    }
+    pub fn default_sends_only_vu_meter() -> Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: false }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 200, g: 200, b: 0, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 200, g: 200, b: 0, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 100, g: 100, b: 255, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 100, g: 100, b: 255, a: 255
+                }
+            }),
+        }
+    }
+    pub fn default_bipolar_gain_reduction_vu_meter () -> Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: false }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 85, g: 119, b: 198, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 85, g: 119, b: 198, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 165, b: 25, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 165, b: 25, a: 255
+                }
+            }),
+        }
+    }
+    pub fn default_orange_vu_meter() -> Self {
+        Self {
+            only_minimum_to_maximum: Some(ValueWrapper { value: true }),
+            maximum: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 165, b: 25, a: 255
+                }
+            }),
+            above_zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 165, b: 25, a: 255
+                }
+            }),
+            zero_decibel: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 165, b: 25, a: 255
+                }
+            }),
+            below_zero_decibel1: None,
+            below_zero_decibel2: None,
+            minimum: Some(HexColor { 
+                value: Color { 
+                    r: 255, g: 165, b: 25, a: 255
+                }
+            }),
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
