@@ -1,4 +1,4 @@
-use common::ValueWrapper;
+use common::{HexColor, ValueWrapper};
 
 pub mod common;
 pub mod live10;
@@ -411,9 +411,10 @@ impl Into<live11::Theme> for live10::SkinManager {
             automation_transform_tool_frame_active: self.automation_transform_tool_frame_active.and_then(|v| Some(v.into())),
             automation_transform_tool_handle: self.automation_transform_tool_handle.and_then(|v| Some(v.into())),
             automation_transform_tool_handle_active: self.automation_transform_tool_handle_active.and_then(|v| Some(v.into())),
-            muted_audition_clip: self.clip.and_then(|v| Some(v.into())),
+            // Using some defaults here onwards
+            muted_audition_clip: Some(HexColor { value: common::Color { r: 0xba, g: 0xba, b: 0xba, a: 255 } }),
             linked_track_hover: self.linked_track_hover.and_then(|v| Some(v.into())),
-            expression_lane_header_highlight: self.expression_lane_header_highlight.and_then(|v| Some(v.into())),
+            expression_lane_header_highlight: self.surface_highlight.and_then(|v| Some(v.into())),
             zoom_pan_handle: self.zoom_pan_handle.and_then(|v| Some(v.into())),
             standard_vu_meter: self.standard_vu_meter.and_then(|v| Some(v.into())),
             overload_vu_meter: self.overload_vu_meter.and_then(|v| Some(v.into())),
