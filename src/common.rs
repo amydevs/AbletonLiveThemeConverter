@@ -1,4 +1,5 @@
 use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
+use serde_with::skip_serializing_none;
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct ValueWrapper<T> {
@@ -25,6 +26,7 @@ impl Default for Color {
     }
 }
 
+#[skip_serializing_none]
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct RGBAColor {
@@ -64,6 +66,7 @@ impl Into<Color> for RGBAColor {
     }
 }
 
+#[skip_serializing_none]
 #[derive(Clone, Copy, Debug)]
 pub struct HexColor {
     pub value: Color,
@@ -157,7 +160,7 @@ impl Into<RGBAColor> for HexColor {
     }
 }
 
-
+#[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Meter {

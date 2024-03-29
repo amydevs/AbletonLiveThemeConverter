@@ -1,6 +1,8 @@
 use serde::{Deserialize, Serialize};
+use serde_with::skip_serializing_none;
 use crate::common::{ValueWrapper, RGBAColor};
 
+#[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct SkinManager {
@@ -186,6 +188,7 @@ pub struct SkinManager {
     pub automation_transform_tool_handle_active: Option<RGBAColor>,
 }
 
+#[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Ableton {
     #[serde(rename = "@MajorVersion")]
