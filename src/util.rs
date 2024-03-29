@@ -1,5 +1,6 @@
 use regex::Regex;
-use quick_xml::{de::from_str, se::to_string, DeError};
+use quick_xml::{de::from_str, se::Serializer, DeError};
+use serde::Serialize;
 
 
 use crate::live11;
@@ -8,10 +9,10 @@ use crate::live10;
 
 pub const LIVE_REGEX_STRING: &str = r#"MinorVersion\s*=\s*"(\S+)""#;
 
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub enum LiveVersion {
-    Live10,
-    Live11,
+    Live10 = 10,
+    Live11 = 11,
 }
 
 pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
@@ -39,28 +40,32 @@ pub fn parse_ask(xml: &str, version: &LiveVersion) -> Result<LiveWrapper, DeErro
 }
 
 pub fn generate_ask(live: &LiveWrapper) -> Result<String, DeError> {
+    let mut buffer = String::new();
+    let mut ser = Serializer::new(&mut buffer);
+    ser.indent('\t', 1);
     match live {
-        LiveWrapper::Live10(live10) => to_string(live10),
-        LiveWrapper::Live11(live11) => to_string(live11),
+        LiveWrapper::Live10(live10) => live10.serialize(ser)?,
+        LiveWrapper::Live11(live11) => live11.serialize(ser)?,
     }
+    Ok(buffer)
 }
 
-pub fn convert(live: LiveWrapper, version: &LiveVersion) -> Result<LiveWrapper, DeError> {
+pub fn convert(live: LiveWrapper, version: &LiveVersion) -> LiveWrapper {
     match version {
         LiveVersion::Live10 => match live {
-            LiveWrapper::Live11(live11) => Ok(LiveWrapper::Live10(live11.into())),
-            LiveWrapper::Live10(_) => Ok(live),
+            LiveWrapper::Live11(live11) => LiveWrapper::Live10(live11.into()),
+            LiveWrapper::Live10(_) => live,
         },
         LiveVersion::Live11 => match live {
-            LiveWrapper::Live10(live10) => Ok(LiveWrapper::Live11(live10.into())),
-            LiveWrapper::Live11(_) => Ok(live),
+            LiveWrapper::Live10(live10) => LiveWrapper::Live11(live10.into()),
+            LiveWrapper::Live11(_) => live,
         },
     }
 }
 
 pub fn convert_ask(xml: &str, version: &LiveVersion) -> Result<String, DeError> {
     let live = parse_ask(xml, version)?;
-    let converted = convert(live, version)?;
+    let converted = convert(live, version);
     generate_ask(&converted)
 }
 
