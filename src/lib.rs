@@ -433,20 +433,3 @@ impl Into<live11::Theme> for live10::SkinManager {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use std::{fs::File, io::Write};
-
-    use quick_xml::{de::from_str, se::to_string};
-
-    use super::{live11, live10};
-    #[test]
-    fn ableton() {
-        let ableton11: live11::Ableton = from_str(include_str!("../temp/live11/Discord Legacy.ask")).unwrap();
-        let ableton10: live10::Ableton = ableton11.into();
-        let mut file = File::create("Discord Legacy.ask").unwrap();
-        file.write_all(b"<?xml version=\"1.0\" encoding=\"UTF-8\"?>").unwrap();
-        file.write_all(to_string(&ableton10).unwrap().as_bytes()).unwrap();
-    }
-}
