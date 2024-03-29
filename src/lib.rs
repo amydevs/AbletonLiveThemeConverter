@@ -266,10 +266,12 @@ impl Into<live11::Theme> for live10::SkinManager {
             standby_selection_background: self.standby_selection_background.and_then(|v| Some(v.into())),
             selection_foreground: self.selection_foreground.and_then(|v| Some(v.into())),
             standby_selection_foreground: self.standby_selection_foreground.and_then(|v| Some(v.into())),
-            selection_background_contrast: self.selection_background_contrast.and_then(|v| Some(v.into())),
+            // We're going to keep the contrast the same as the surface.
+            selection_background_contrast: self.selection_background.and_then(|v| Some(v.into())),
             surface_background: self.surface_background.and_then(|v| Some(v.into())),
-            take_lane_track_highlighted: self.take_lane_track_highlighted.and_then(|v| Some(v.into())),
-            take_lane_track_not_highlighted: self.take_lane_track_not_highlighted.and_then(|v| Some(v.into())),
+            // We're going to keep the take lanes the same as the surface.
+            take_lane_track_highlighted: self.surface_highlight.and_then(|v| Some(v.into())),
+            take_lane_track_not_highlighted: self.surface_background.and_then(|v| Some(v.into())),
             automation_color: self.automation_color.and_then(|v| Some(v.into())),
             automation_grid: self.automation_grid.and_then(|v| Some(v.into())),
             loop_color: self.loop_color.and_then(|v| Some(v.into())),
@@ -281,9 +283,11 @@ impl Into<live11::Theme> for live10::SkinManager {
             display_background: self.display_background.and_then(|v| Some(v.into())),
             ableton_color: self.ableton_color.and_then(|v| Some(v.into())),
             waveform_color: self.waveform_color.and_then(|v| Some(v.into())),
-            dimmed_waveform_color: self.dimmed_waveform_color.and_then(|v| Some(v.into())),
+            // The dimmed color is going to be the same as the waveform color.
+            dimmed_waveform_color: self.waveform_color.and_then(|v| Some(v.into())),
             velocity_color: self.velocity_color.and_then(|v| Some(v.into())),
-            velocity_selected_or_hovered: self.velocity_selected_or_hovered.and_then(|v| Some(v.into())),
+            // The selected color is going to be the same as the velocity color.
+            velocity_selected_or_hovered: self.velocity_color.and_then(|v| Some(v.into())),
             // This should be close
             note_probability: self.surface_background.and_then(|v| Some(v.into())),
             alert: self.alert.and_then(|v| Some(v.into())),
@@ -414,9 +418,11 @@ impl Into<live11::Theme> for live10::SkinManager {
             automation_transform_tool_handle_active: self.automation_transform_tool_handle_active.and_then(|v| Some(v.into())),
             // Using some defaults here onwards
             muted_audition_clip: Some(HexColor { value: common::Color { r: 0xba, g: 0xba, b: 0xba, a: 255 } }),
-            linked_track_hover: self.linked_track_hover.and_then(|v| Some(v.into())),
+            // This might be a bit confusing... But I think it's fine.
+            linked_track_hover: self.selection_background.and_then(|v| Some(v.into())),
             expression_lane_header_highlight: self.surface_highlight.and_then(|v| Some(v.into())),
-            zoom_pan_handle: self.zoom_pan_handle.and_then(|v| Some(v.into())),
+            // This is the scrollbar on the same surface, should look good enough
+            zoom_pan_handle: self.scrollbar_outer_handle.and_then(|v| Some(v.into())),
             standard_vu_meter: common::Meter::default_standard_vu_meter(),
             overload_vu_meter: common::Meter::default_overlad_vu_meter(),
             disabled_vu_meter: common::Meter::default_disabled_vu_meter(),

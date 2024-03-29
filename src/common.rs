@@ -1,12 +1,12 @@
 use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct ValueWrapper<T> {
     #[serde(rename = "@Value")]
     pub value: T,
 }
 
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub struct Color {
     pub r: u8,
     pub g: u8,
@@ -25,7 +25,7 @@ impl Default for Color {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct RGBAColor {
     pub r: ValueWrapper<u8>,
@@ -64,7 +64,7 @@ impl Into<Color> for RGBAColor {
     }
 }
 
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub struct HexColor {
     pub value: Color,
 }
