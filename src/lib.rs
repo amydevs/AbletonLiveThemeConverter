@@ -260,7 +260,8 @@ impl Into<live11::Theme> for live10::SkinManager {
             clip16: self.clip16.and_then(|v| Some(v.into())),
             clip_text: self.clip_text.and_then(|v| Some(v.into())),
             clip_border: self.clip_border.and_then(|v| Some(v.into())),
-            scene_contrast: self.scene.and_then(|v| Some(v.into())),
+            // We're going to keep the contrast the same as the surface.
+            scene_contrast: self.surface_background.and_then(|v| Some(v.into())),
             selection_background: self.selection_background.and_then(|v| Some(v.into())),
             standby_selection_background: self.standby_selection_background.and_then(|v| Some(v.into())),
             selection_foreground: self.selection_foreground.and_then(|v| Some(v.into())),
@@ -284,7 +285,7 @@ impl Into<live11::Theme> for live10::SkinManager {
             velocity_color: self.velocity_color.and_then(|v| Some(v.into())),
             velocity_selected_or_hovered: self.velocity_selected_or_hovered.and_then(|v| Some(v.into())),
             // This should be close
-            note_probability: self.velocity_color.and_then(|v| Some(v.into())),
+            note_probability: self.surface_background.and_then(|v| Some(v.into())),
             alert: self.alert.and_then(|v| Some(v.into())),
             control_on_foreground: self.control_on_foreground.and_then(|v| Some(v.into())),
             control_off_foreground: self.control_off_foreground.and_then(|v| Some(v.into())),
