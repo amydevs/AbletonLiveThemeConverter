@@ -20,16 +20,18 @@ required-features = ["schemagen"]
 [features]
 default = ["bin"]
 bin = ["clap"]
-schemagen = ["clap", "syn", "quote"]
+schemagen = ["clap", "syn", "quote", "proc-macro2", "convert_case"]
 
 [dependencies]
-quick-xml = { version = "0.31.0", features = ["serialize"] }
-regex = "1.10.4"
-serde = { version = "1.0.197", features = ["derive"] }
-wasm-bindgen = "0.2.92"
-serde_with = "3.7.0"
+quick-xml = { version = "0.31", features = ["serialize"] }
+regex = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+wasm-bindgen = "0.2"
+serde_with = "3.7"
 # bin stuff
-clap = { version = "4.5.4", features = ["derive"] , optional = true }
+clap = { version = "4.5", features = ["derive"] , optional = true }
 # schemagen stuff
-syn = { version = "2.0", optional = true }
+syn = { version = "2.0", features = ["parsing", "printing"], optional = true }
 quote = { version = "1.0", optional = true }
+proc-macro2 = { version = "1.0", optional = true }
+convert_case = { version = "0.6", optional = true }

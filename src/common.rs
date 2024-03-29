@@ -81,9 +81,7 @@ impl Default for HexColor {
 
 impl From<Color> for HexColor {
     fn from(color: Color) -> HexColor {
-        HexColor {
-            value: color,
-        }
+        HexColor { value: color }
     }
 }
 
@@ -93,8 +91,7 @@ impl Into<Color> for HexColor {
     }
 }
 
-impl Serialize for HexColor
-{
+impl Serialize for HexColor {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -142,7 +139,9 @@ impl<'de> Deserialize<'de> for HexColor {
             }
             return Ok(HexColor { value: color });
         }
-        Err(de::Error::custom(format!("String does not match the #rrggbbaa format")))
+        Err(de::Error::custom(format!(
+            "String does not match the #rrggbbaa format"
+        )))
     }
 }
 
@@ -175,194 +174,277 @@ pub struct Meter {
     pub minimum: Option<HexColor>,
 }
 
-
 impl Meter {
-    pub fn default_standard_vu_meter() ->  Self {
+    pub fn default_standard_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: false }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 10, b: 10, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 10,
+                    b: 10,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 208, b: 10, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 208,
+                    b: 10,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 198, g: 248, b: 100, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 198,
+                    g: 248,
+                    b: 100,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 10, g: 248, b: 100, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 10,
+                    g: 248,
+                    b: 100,
+                    a: 255,
+                },
             }),
         }
     }
-    pub fn default_overlad_vu_meter() ->  Self {
+    pub fn default_overlad_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: true }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 10, b: 10, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 10,
+                    b: 10,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 255, b: 255, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 255, b: 255, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 175, g: 10, b: 10, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 175,
+                    g: 10,
+                    b: 10,
+                    a: 255,
+                },
             }),
         }
     }
-    pub fn default_disabled_vu_meter() ->  Self {
+    pub fn default_disabled_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: false }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 10, b: 10, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 10,
+                    b: 10,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 208, b: 10, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 208,
+                    b: 10,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 130, g: 130, b: 130, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 130,
+                    g: 130,
+                    b: 130,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 110, g: 110, b: 110, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 110,
+                    g: 110,
+                    b: 110,
+                    a: 255,
+                },
             }),
         }
     }
-    pub fn default_headphones_vu_meter() ->  Self {
+    pub fn default_headphones_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: false }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 165, g: 165, b: 241, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 165,
+                    g: 165,
+                    b: 241,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 144, g: 170, b: 236, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 144,
+                    g: 170,
+                    b: 236,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 144, g: 170, b: 236, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 144,
+                    g: 170,
+                    b: 236,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 10, g: 255, b: 255, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 10,
+                    g: 255,
+                    b: 255,
+                    a: 255,
+                },
             }),
         }
     }
     pub fn default_sends_only_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: false }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 200, g: 200, b: 0, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 200,
+                    g: 200,
+                    b: 0,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 200, g: 200, b: 0, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 200,
+                    g: 200,
+                    b: 0,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 100, g: 100, b: 255, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 100,
+                    g: 100,
+                    b: 255,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 100, g: 100, b: 255, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 100,
+                    g: 100,
+                    b: 255,
+                    a: 255,
+                },
             }),
         }
     }
-    pub fn default_bipolar_gain_reduction_vu_meter () -> Self {
+    pub fn default_bipolar_gain_reduction_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: false }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 85, g: 119, b: 198, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 85,
+                    g: 119,
+                    b: 198,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 85, g: 119, b: 198, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 85,
+                    g: 119,
+                    b: 198,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 165, b: 25, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 165,
+                    b: 25,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 165, b: 25, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 165,
+                    b: 25,
+                    a: 255,
+                },
             }),
         }
     }
     pub fn default_orange_vu_meter() -> Self {
         Self {
             only_minimum_to_maximum: Some(ValueWrapper { value: true }),
-            maximum: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 165, b: 25, a: 255
-                }
+            maximum: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 165,
+                    b: 25,
+                    a: 255,
+                },
             }),
-            above_zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 165, b: 25, a: 255
-                }
+            above_zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 165,
+                    b: 25,
+                    a: 255,
+                },
             }),
-            zero_decibel: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 165, b: 25, a: 255
-                }
+            zero_decibel: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 165,
+                    b: 25,
+                    a: 255,
+                },
             }),
             below_zero_decibel1: None,
             below_zero_decibel2: None,
-            minimum: Some(HexColor { 
-                value: Color { 
-                    r: 255, g: 165, b: 25, a: 255
-                }
+            minimum: Some(HexColor {
+                value: Color {
+                    r: 255,
+                    g: 165,
+                    b: 25,
+                    a: 255,
+                },
             }),
         }
     }
@@ -372,14 +454,15 @@ impl Meter {
 mod tests {
     use quick_xml::de::from_str;
 
-    use super::{ValueWrapper, RGBAColor, HexColor};
+    use super::{HexColor, RGBAColor, ValueWrapper};
     #[test]
     fn value_wrapper() {
         let rgba_value: ValueWrapper<u8> = from_str(
             r#"
             <Alpha Value="90"/>
             "#,
-        ).unwrap();
+        )
+        .unwrap();
         assert_eq!(rgba_value.value, 90);
     }
     #[test]
@@ -393,7 +476,8 @@ mod tests {
                 <Alpha Value="4"/>
             </ControlForeground>
             "#,
-        ).unwrap();
+        )
+        .unwrap();
         assert_eq!(rgba.r.value, 1);
         assert_eq!(rgba.g.value, 2);
         assert_eq!(rgba.b.value, 3);
@@ -401,16 +485,12 @@ mod tests {
     }
     #[test]
     fn hex_color() {
-        let hex: HexColor = from_str(
-            "<ControlForeground Value=\"#01020304\"/>",
-        ).unwrap();
+        let hex: HexColor = from_str("<ControlForeground Value=\"#01020304\"/>").unwrap();
         assert_eq!(hex.value.r, 1);
         assert_eq!(hex.value.g, 2);
         assert_eq!(hex.value.b, 3);
         assert_eq!(hex.value.a, 4);
-        let hex2: HexColor = from_str(
-            "<ControlForeground Value=\"#010203\"/>",
-        ).unwrap();
+        let hex2: HexColor = from_str("<ControlForeground Value=\"#010203\"/>").unwrap();
         assert_eq!(hex2.value.r, 1);
         assert_eq!(hex2.value.g, 2);
         assert_eq!(hex2.value.b, 3);

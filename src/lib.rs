@@ -1,9 +1,10 @@
 use common::{HexColor, ValueWrapper};
 
 pub mod common;
-pub mod util;
 pub mod live10;
 pub mod live11;
+pub mod live12;
+pub mod util;
 
 impl Into<live10::Ableton> for live11::Ableton {
     fn into(self) -> live10::Ableton {
@@ -28,7 +29,9 @@ impl Into<live10::SkinManager> for live11::Theme {
             surface_highlight: self.surface_highlight.and_then(|v| Some(v.into())),
             surface_area: self.surface_area.and_then(|v| Some(v.into())),
             desktop: self.desktop.and_then(|v| Some(v.into())),
-            view_check_control_enabled_on: self.view_check_control_enabled_on.and_then(|v| Some(v.into())),
+            view_check_control_enabled_on: self
+                .view_check_control_enabled_on
+                .and_then(|v| Some(v.into())),
             scrollbar_inner_handle: self.scrollbar_inner_handle.and_then(|v| Some(v.into())),
             scrollbar_inner_track: self.scrollbar_inner_track.and_then(|v| Some(v.into())),
             scrollbar_outer_handle: self.scrollbar_outer_handle.and_then(|v| Some(v.into())),
@@ -75,16 +78,24 @@ impl Into<live10::SkinManager> for live11::Theme {
             clip_text: self.clip_text.and_then(|v| Some(v.into())),
             clip_border: self.clip_border.and_then(|v| Some(v.into())),
             selection_background: self.selection_background.and_then(|v| Some(v.into())),
-            standby_selection_background: self.standby_selection_background.and_then(|v| Some(v.into())),
+            standby_selection_background: self
+                .standby_selection_background
+                .and_then(|v| Some(v.into())),
             selection_foreground: self.selection_foreground.and_then(|v| Some(v.into())),
-            standby_selection_foreground: self.standby_selection_foreground.and_then(|v| Some(v.into())),
+            standby_selection_foreground: self
+                .standby_selection_foreground
+                .and_then(|v| Some(v.into())),
             surface_background: self.surface_background.and_then(|v| Some(v.into())),
             automation_color: self.automation_color.and_then(|v| Some(v.into())),
             automation_grid: self.automation_grid.and_then(|v| Some(v.into())),
             loop_color: self.loop_color.and_then(|v| Some(v.into())),
             off_grid_loop_color: self.off_grid_loop_color.and_then(|v| Some(v.into())),
-            arrangement_ruler_markings: self.arrangement_ruler_markings.and_then(|v| Some(v.into())),
-            detail_view_ruler_markings: self.detail_view_ruler_markings.and_then(|v| Some(v.into())),
+            arrangement_ruler_markings: self
+                .arrangement_ruler_markings
+                .and_then(|v| Some(v.into())),
+            detail_view_ruler_markings: self
+                .detail_view_ruler_markings
+                .and_then(|v| Some(v.into())),
             shadow_dark: self.shadow_dark.and_then(|v| Some(v.into())),
             shadow_light: self.shadow_light.and_then(|v| Some(v.into())),
             display_background: self.display_background.and_then(|v| Some(v.into())),
@@ -94,29 +105,43 @@ impl Into<live10::SkinManager> for live11::Theme {
             alert: self.alert.and_then(|v| Some(v.into())),
             control_on_foreground: self.control_on_foreground.and_then(|v| Some(v.into())),
             control_off_foreground: self.control_off_foreground.and_then(|v| Some(v.into())),
-            control_on_disabled_foreground: self.control_on_disabled_foreground.and_then(|v| Some(v.into())),
-            control_off_disabled_foreground: self.control_off_disabled_foreground.and_then(|v| Some(v.into())),
-            control_on_alternative_foreground: self.control_on_alternative_foreground.and_then(|v| Some(v.into())),
+            control_on_disabled_foreground: self
+                .control_on_disabled_foreground
+                .and_then(|v| Some(v.into())),
+            control_off_disabled_foreground: self
+                .control_off_disabled_foreground
+                .and_then(|v| Some(v.into())),
+            control_on_alternative_foreground: self
+                .control_on_alternative_foreground
+                .and_then(|v| Some(v.into())),
             control_text_back: self.control_text_back.and_then(|v| Some(v.into())),
             control_contrast_frame: self.control_contrast_frame.and_then(|v| Some(v.into())),
             control_selection_frame: self.control_selection_frame.and_then(|v| Some(v.into())),
-            control_contrast_transport: self.control_contrast_transport.and_then(|v| Some(v.into())),
+            control_contrast_transport: self
+                .control_contrast_transport
+                .and_then(|v| Some(v.into())),
             progress: self.progress.and_then(|v| Some(v.into())),
             progress_text: self.progress_text.and_then(|v| Some(v.into())),
             transport_progress: self.transport_progress.and_then(|v| Some(v.into())),
             clip_slot_button: self.clip_slot_button.and_then(|v| Some(v.into())),
             browser_bar: self.browser_bar.and_then(|v| Some(v.into())),
-            browser_bar_overlay_hint_text_color: self.browser_bar_overlay_hint_text_color.and_then(|v| Some(v.into())),
+            browser_bar_overlay_hint_text_color: self
+                .browser_bar_overlay_hint_text_color
+                .and_then(|v| Some(v.into())),
             browser_disabled_item: self.browser_disabled_item.and_then(|v| Some(v.into())),
             browser_sample_waveform: self.browser_sample_waveform.and_then(|v| Some(v.into())),
             automation_disabled: self.automation_disabled.and_then(|v| Some(v.into())),
             automation_mouse_over: self.automation_mouse_over.and_then(|v| Some(v.into())),
             midi_note_max_velocity: self.midi_note_max_velocity.and_then(|v| Some(v.into())),
             retro_display_background: self.retro_display_background.and_then(|v| Some(v.into())),
-            retro_display_background_line: self.retro_display_background_line.and_then(|v| Some(v.into())),
+            retro_display_background_line: self
+                .retro_display_background_line
+                .and_then(|v| Some(v.into())),
             retro_display_foreground: self.retro_display_foreground.and_then(|v| Some(v.into())),
             retro_display_foreground2: self.retro_display_foreground2.and_then(|v| Some(v.into())),
-            retro_display_foreground_disabled: self.retro_display_foreground_disabled.and_then(|v| Some(v.into())),
+            retro_display_foreground_disabled: self
+                .retro_display_foreground_disabled
+                .and_then(|v| Some(v.into())),
             retro_display_green: self.retro_display_green.and_then(|v| Some(v.into())),
             retro_display_red: self.retro_display_red.and_then(|v| Some(v.into())),
             retro_display_handle1: self.retro_display_handle1.and_then(|v| Some(v.into())),
@@ -127,9 +152,13 @@ impl Into<live10::SkinManager> for live11::Theme {
             input_curve_color: self.input_curve_color.and_then(|v| Some(v.into())),
             input_curve_outline_color: self.input_curve_outline_color.and_then(|v| Some(v.into())),
             output_curve_color: self.output_curve_color.and_then(|v| Some(v.into())),
-            output_curve_outline_color: self.output_curve_outline_color.and_then(|v| Some(v.into())),
+            output_curve_outline_color: self
+                .output_curve_outline_color
+                .and_then(|v| Some(v.into())),
             spectrum_default_color: self.spectrum_default_color.and_then(|v| Some(v.into())),
-            spectrum_alternative_color: self.spectrum_alternative_color.and_then(|v| Some(v.into())),
+            spectrum_alternative_color: self
+                .spectrum_alternative_color
+                .and_then(|v| Some(v.into())),
             spectrum_grid_lines: self.spectrum_grid_lines.and_then(|v| Some(v.into())),
             operator1: self.operator1.and_then(|v| Some(v.into())),
             operator2: self.operator2.and_then(|v| Some(v.into())),
@@ -146,59 +175,115 @@ impl Into<live10::SkinManager> for live11::Theme {
             detail_grid_tiles: self.detail_grid_tiles.and_then(|v| Some(v.into())),
             grid_guideline: self.grid_guideline.and_then(|v| Some(v.into())),
             off_grid_guideline: self.off_grid_guideline.and_then(|v| Some(v.into())),
-            tree_column_head_background: self.tree_column_head_background.and_then(|v| Some(v.into())),
-            tree_column_head_foreground: self.tree_column_head_foreground.and_then(|v| Some(v.into())),
+            tree_column_head_background: self
+                .tree_column_head_background
+                .and_then(|v| Some(v.into())),
+            tree_column_head_foreground: self
+                .tree_column_head_foreground
+                .and_then(|v| Some(v.into())),
             tree_column_head_selected: self.tree_column_head_selected.and_then(|v| Some(v.into())),
             tree_column_head_focus: self.tree_column_head_focus.and_then(|v| Some(v.into())),
             tree_column_head_control: self.tree_column_head_control.and_then(|v| Some(v.into())),
-            tree_row_category_foreground: self.tree_row_category_foreground.and_then(|v| Some(v.into())),
-            tree_row_category_background: self.tree_row_category_background.and_then(|v| Some(v.into())),
+            tree_row_category_foreground: self
+                .tree_row_category_foreground
+                .and_then(|v| Some(v.into())),
+            tree_row_category_background: self
+                .tree_row_category_background
+                .and_then(|v| Some(v.into())),
             search_indication: self.search_indication.and_then(|v| Some(v.into())),
             search_indication_standby: self.search_indication_standby.and_then(|v| Some(v.into())),
             key_zone_background: self.key_zone_background.and_then(|v| Some(v.into())),
             key_zone_crossfade_ramp: self.key_zone_crossfade_ramp.and_then(|v| Some(v.into())),
             velocity_zone_background: self.velocity_zone_background.and_then(|v| Some(v.into())),
-            velocity_zone_crossfade_ramp: self.velocity_zone_crossfade_ramp.and_then(|v| Some(v.into())),
+            velocity_zone_crossfade_ramp: self
+                .velocity_zone_crossfade_ramp
+                .and_then(|v| Some(v.into())),
             selector_zone_background: self.selector_zone_background.and_then(|v| Some(v.into())),
-            selector_zone_crossfade_ramp: self.selector_zone_crossfade_ramp.and_then(|v| Some(v.into())),
-            view_check_control_enabled_off: self.view_check_control_enabled_off.and_then(|v| Some(v.into())),
-            view_check_control_disabled_on: self.view_check_control_disabled_on.and_then(|v| Some(v.into())),
-            view_check_control_disabled_off: self.view_check_control_disabled_off.and_then(|v| Some(v.into())),
+            selector_zone_crossfade_ramp: self
+                .selector_zone_crossfade_ramp
+                .and_then(|v| Some(v.into())),
+            view_check_control_enabled_off: self
+                .view_check_control_enabled_off
+                .and_then(|v| Some(v.into())),
+            view_check_control_disabled_on: self
+                .view_check_control_disabled_on
+                .and_then(|v| Some(v.into())),
+            view_check_control_disabled_off: self
+                .view_check_control_disabled_off
+                .and_then(|v| Some(v.into())),
             default_blend_factor: self.default_blend_factor.and_then(|v| Some(v.into())),
             icon_blend_factor: self.icon_blend_factor.and_then(|v| Some(v.into())),
             clip_blend_factor: self.clip_blend_factor.and_then(|v| Some(v.into())),
-            note_border_standby_blend_factor: self.note_border_standby_blend_factor.and_then(|v| Some(v.into())),
-            retro_display_blend_factor: self.retro_display_blend_factor.and_then(|v| Some(v.into())),
-            check_control_not_checked_blend_factor: self.check_control_not_checked_blend_factor.and_then(|v| Some(v.into())),
-            mix_surface_area_blend_factor: self.mix_surface_area_blend_factor.and_then(|v| Some(v.into())),
-            text_frame_segment_blend_factor: self.text_frame_segment_blend_factor.and_then(|v| Some(v.into())),
-            velocity_editor_foreground_selected_blend_factor: Some(ValueWrapper { value: 0.6000000238 }),
-            note_disabled_selected_blend_factor: self.note_disabled_selected_blend_factor.and_then(|v| Some(v.into())),
+            note_border_standby_blend_factor: self
+                .note_border_standby_blend_factor
+                .and_then(|v| Some(v.into())),
+            retro_display_blend_factor: self
+                .retro_display_blend_factor
+                .and_then(|v| Some(v.into())),
+            check_control_not_checked_blend_factor: self
+                .check_control_not_checked_blend_factor
+                .and_then(|v| Some(v.into())),
+            mix_surface_area_blend_factor: self
+                .mix_surface_area_blend_factor
+                .and_then(|v| Some(v.into())),
+            text_frame_segment_blend_factor: self
+                .text_frame_segment_blend_factor
+                .and_then(|v| Some(v.into())),
+            velocity_editor_foreground_selected_blend_factor: Some(ValueWrapper {
+                value: 0.6000000238,
+            }),
+            note_disabled_selected_blend_factor: self
+                .note_disabled_selected_blend_factor
+                .and_then(|v| Some(v.into())),
             background_clip: self.background_clip.and_then(|v| Some(v.into())),
             background_clip_frame: self.background_clip_frame.and_then(|v| Some(v.into())),
-            warper_time_bar_ruler_background: self.warper_time_bar_ruler_background.and_then(|v| Some(v.into())),
-            warper_time_bar_marker_background: self.warper_time_bar_marker_background.and_then(|v| Some(v.into())),
-            min_velocity_note_blend_factor: self.min_velocity_note_blend_factor.and_then(|v| Some(v.into())),
-            striped_background_shade_factor: self.striped_background_shade_factor.and_then(|v| Some(v.into())),
+            warper_time_bar_ruler_background: self
+                .warper_time_bar_ruler_background
+                .and_then(|v| Some(v.into())),
+            warper_time_bar_marker_background: self
+                .warper_time_bar_marker_background
+                .and_then(|v| Some(v.into())),
+            min_velocity_note_blend_factor: self
+                .min_velocity_note_blend_factor
+                .and_then(|v| Some(v.into())),
+            striped_background_shade_factor: self
+                .striped_background_shade_factor
+                .and_then(|v| Some(v.into())),
             automation_lane_header_alpha: Some(ValueWrapper { value: 60 }),
             automation_lane_clip_body_alpha: Some(ValueWrapper { value: 60 }),
-            non_editable_automation_alpha: self.non_editable_automation_alpha.and_then(|v| Some(v.into())),
-            disabled_context_menu_icon_alpha: self.disabled_context_menu_icon_alpha.and_then(|v| Some(v.into())),
+            non_editable_automation_alpha: self
+                .non_editable_automation_alpha
+                .and_then(|v| Some(v.into())),
+            disabled_context_menu_icon_alpha: self
+                .disabled_context_menu_icon_alpha
+                .and_then(|v| Some(v.into())),
             bipolar_poti_triangle: self.bipolar_poti_triangle.and_then(|v| Some(v.into())),
             poti: self.poti.and_then(|v| Some(v.into())),
             deactivated_poti: self.deactivated_poti.and_then(|v| Some(v.into())),
             poti_needle: self.poti_needle.and_then(|v| Some(v.into())),
             deactivated_poti_needle: self.deactivated_poti_needle.and_then(|v| Some(v.into())),
             transport_off_background: self.transport_off_background.and_then(|v| Some(v.into())),
-            transport_off_disabled_foreground: self.transport_off_disabled_foreground.and_then(|v| Some(v.into())),
-            transport_selection_background: self.transport_selection_background.and_then(|v| Some(v.into())),
+            transport_off_disabled_foreground: self
+                .transport_off_disabled_foreground
+                .and_then(|v| Some(v.into())),
+            transport_selection_background: self
+                .transport_selection_background
+                .and_then(|v| Some(v.into())),
             modulation: self.modulation.and_then(|v| Some(v.into())),
             modulation_disabled: self.modulation_disabled.and_then(|v| Some(v.into())),
             modulation_mouse_over: self.modulation_mouse_over.and_then(|v| Some(v.into())),
-            automation_transform_tool_frame: self.automation_transform_tool_frame.and_then(|v| Some(v.into())),
-            automation_transform_tool_frame_active: self.automation_transform_tool_frame_active.and_then(|v| Some(v.into())),
-            automation_transform_tool_handle: self.automation_transform_tool_handle.and_then(|v| Some(v.into())),
-            automation_transform_tool_handle_active: self.automation_transform_tool_handle_active.and_then(|v| Some(v.into())),
+            automation_transform_tool_frame: self
+                .automation_transform_tool_frame
+                .and_then(|v| Some(v.into())),
+            automation_transform_tool_frame_active: self
+                .automation_transform_tool_frame_active
+                .and_then(|v| Some(v.into())),
+            automation_transform_tool_handle: self
+                .automation_transform_tool_handle
+                .and_then(|v| Some(v.into())),
+            automation_transform_tool_handle_active: self
+                .automation_transform_tool_handle_active
+                .and_then(|v| Some(v.into())),
         }
     }
 }
@@ -227,7 +312,9 @@ impl Into<live11::Theme> for live10::SkinManager {
             surface_area: self.surface_area.and_then(|v| Some(v.into())),
             surface_area_foreground: self.surface_area.and_then(|v| Some(v.into())),
             desktop: self.desktop.and_then(|v| Some(v.into())),
-            view_check_control_enabled_on: self.view_check_control_enabled_on.and_then(|v| Some(v.into())),
+            view_check_control_enabled_on: self
+                .view_check_control_enabled_on
+                .and_then(|v| Some(v.into())),
             scrollbar_inner_handle: self.scrollbar_inner_handle.and_then(|v| Some(v.into())),
             scrollbar_inner_track: self.scrollbar_inner_track.and_then(|v| Some(v.into())),
             scrollbar_outer_handle: self.scrollbar_outer_handle.and_then(|v| Some(v.into())),
@@ -276,9 +363,13 @@ impl Into<live11::Theme> for live10::SkinManager {
             // We're going to keep the contrast the same as the surface.
             scene_contrast: self.surface_background.and_then(|v| Some(v.into())),
             selection_background: self.selection_background.and_then(|v| Some(v.into())),
-            standby_selection_background: self.standby_selection_background.and_then(|v| Some(v.into())),
+            standby_selection_background: self
+                .standby_selection_background
+                .and_then(|v| Some(v.into())),
             selection_foreground: self.selection_foreground.and_then(|v| Some(v.into())),
-            standby_selection_foreground: self.standby_selection_foreground.and_then(|v| Some(v.into())),
+            standby_selection_foreground: self
+                .standby_selection_foreground
+                .and_then(|v| Some(v.into())),
             // We're going to keep the contrast the same as the surface.
             selection_background_contrast: self.selection_background.and_then(|v| Some(v.into())),
             surface_background: self.surface_background.and_then(|v| Some(v.into())),
@@ -289,8 +380,12 @@ impl Into<live11::Theme> for live10::SkinManager {
             automation_grid: self.automation_grid.and_then(|v| Some(v.into())),
             loop_color: self.loop_color.and_then(|v| Some(v.into())),
             off_grid_loop_color: self.off_grid_loop_color.and_then(|v| Some(v.into())),
-            arrangement_ruler_markings: self.arrangement_ruler_markings.and_then(|v| Some(v.into())),
-            detail_view_ruler_markings: self.detail_view_ruler_markings.and_then(|v| Some(v.into())),
+            arrangement_ruler_markings: self
+                .arrangement_ruler_markings
+                .and_then(|v| Some(v.into())),
+            detail_view_ruler_markings: self
+                .detail_view_ruler_markings
+                .and_then(|v| Some(v.into())),
             shadow_dark: self.shadow_dark.and_then(|v| Some(v.into())),
             shadow_light: self.shadow_light.and_then(|v| Some(v.into())),
             display_background: self.display_background.and_then(|v| Some(v.into())),
@@ -306,29 +401,43 @@ impl Into<live11::Theme> for live10::SkinManager {
             alert: self.alert.and_then(|v| Some(v.into())),
             control_on_foreground: self.control_on_foreground.and_then(|v| Some(v.into())),
             control_off_foreground: self.control_off_foreground.and_then(|v| Some(v.into())),
-            control_on_disabled_foreground: self.control_on_disabled_foreground.and_then(|v| Some(v.into())),
-            control_off_disabled_foreground: self.control_off_disabled_foreground.and_then(|v| Some(v.into())),
-            control_on_alternative_foreground: self.control_on_alternative_foreground.and_then(|v| Some(v.into())),
+            control_on_disabled_foreground: self
+                .control_on_disabled_foreground
+                .and_then(|v| Some(v.into())),
+            control_off_disabled_foreground: self
+                .control_off_disabled_foreground
+                .and_then(|v| Some(v.into())),
+            control_on_alternative_foreground: self
+                .control_on_alternative_foreground
+                .and_then(|v| Some(v.into())),
             control_text_back: self.control_text_back.and_then(|v| Some(v.into())),
             control_contrast_frame: self.control_contrast_frame.and_then(|v| Some(v.into())),
             control_selection_frame: self.control_selection_frame.and_then(|v| Some(v.into())),
-            control_contrast_transport: self.control_contrast_transport.and_then(|v| Some(v.into())),
+            control_contrast_transport: self
+                .control_contrast_transport
+                .and_then(|v| Some(v.into())),
             progress: self.progress.and_then(|v| Some(v.into())),
             progress_text: self.progress_text.and_then(|v| Some(v.into())),
             transport_progress: self.transport_progress.and_then(|v| Some(v.into())),
             clip_slot_button: self.clip_slot_button.and_then(|v| Some(v.into())),
             browser_bar: self.browser_bar.and_then(|v| Some(v.into())),
-            browser_bar_overlay_hint_text_color: self.browser_bar_overlay_hint_text_color.and_then(|v| Some(v.into())),
+            browser_bar_overlay_hint_text_color: self
+                .browser_bar_overlay_hint_text_color
+                .and_then(|v| Some(v.into())),
             browser_disabled_item: self.browser_disabled_item.and_then(|v| Some(v.into())),
             browser_sample_waveform: self.browser_sample_waveform.and_then(|v| Some(v.into())),
             automation_disabled: self.automation_disabled.and_then(|v| Some(v.into())),
             automation_mouse_over: self.automation_mouse_over.and_then(|v| Some(v.into())),
             midi_note_max_velocity: self.midi_note_max_velocity.and_then(|v| Some(v.into())),
             retro_display_background: self.retro_display_background.and_then(|v| Some(v.into())),
-            retro_display_background_line: self.retro_display_background_line.and_then(|v| Some(v.into())),
+            retro_display_background_line: self
+                .retro_display_background_line
+                .and_then(|v| Some(v.into())),
             retro_display_foreground: self.retro_display_foreground.and_then(|v| Some(v.into())),
             retro_display_foreground2: self.retro_display_foreground2.and_then(|v| Some(v.into())),
-            retro_display_foreground_disabled: self.retro_display_foreground_disabled.and_then(|v| Some(v.into())),
+            retro_display_foreground_disabled: self
+                .retro_display_foreground_disabled
+                .and_then(|v| Some(v.into())),
             retro_display_green: self.retro_display_green.and_then(|v| Some(v.into())),
             retro_display_red: self.retro_display_red.and_then(|v| Some(v.into())),
             retro_display_handle1: self.retro_display_handle1.and_then(|v| Some(v.into())),
@@ -341,9 +450,13 @@ impl Into<live11::Theme> for live10::SkinManager {
             input_curve_color: self.input_curve_color.and_then(|v| Some(v.into())),
             input_curve_outline_color: self.input_curve_outline_color.and_then(|v| Some(v.into())),
             output_curve_color: self.output_curve_color.and_then(|v| Some(v.into())),
-            output_curve_outline_color: self.output_curve_outline_color.and_then(|v| Some(v.into())),
+            output_curve_outline_color: self
+                .output_curve_outline_color
+                .and_then(|v| Some(v.into())),
             spectrum_default_color: self.spectrum_default_color.and_then(|v| Some(v.into())),
-            spectrum_alternative_color: self.spectrum_alternative_color.and_then(|v| Some(v.into())),
+            spectrum_alternative_color: self
+                .spectrum_alternative_color
+                .and_then(|v| Some(v.into())),
             spectrum_grid_lines: self.spectrum_grid_lines.and_then(|v| Some(v.into())),
             operator1: self.operator1.and_then(|v| Some(v.into())),
             operator2: self.operator2.and_then(|v| Some(v.into())),
@@ -360,41 +473,83 @@ impl Into<live11::Theme> for live10::SkinManager {
             detail_grid_tiles: self.detail_grid_tiles.and_then(|v| Some(v.into())),
             grid_guideline: self.grid_guideline.and_then(|v| Some(v.into())),
             off_grid_guideline: self.off_grid_guideline.and_then(|v| Some(v.into())),
-            tree_column_head_background: self.tree_column_head_background.and_then(|v| Some(v.into())),
-            tree_column_head_foreground: self.tree_column_head_foreground.and_then(|v| Some(v.into())),
+            tree_column_head_background: self
+                .tree_column_head_background
+                .and_then(|v| Some(v.into())),
+            tree_column_head_foreground: self
+                .tree_column_head_foreground
+                .and_then(|v| Some(v.into())),
             tree_column_head_selected: self.tree_column_head_selected.and_then(|v| Some(v.into())),
             tree_column_head_focus: self.tree_column_head_focus.and_then(|v| Some(v.into())),
             tree_column_head_control: self.tree_column_head_control.and_then(|v| Some(v.into())),
-            tree_row_category_foreground: self.tree_row_category_foreground.and_then(|v| Some(v.into())),
-            tree_row_category_background: self.tree_row_category_background.and_then(|v| Some(v.into())),
+            tree_row_category_foreground: self
+                .tree_row_category_foreground
+                .and_then(|v| Some(v.into())),
+            tree_row_category_background: self
+                .tree_row_category_background
+                .and_then(|v| Some(v.into())),
             search_indication: self.search_indication.and_then(|v| Some(v.into())),
             search_indication_standby: self.search_indication_standby.and_then(|v| Some(v.into())),
             key_zone_background: self.key_zone_background.and_then(|v| Some(v.into())),
             key_zone_crossfade_ramp: self.key_zone_crossfade_ramp.and_then(|v| Some(v.into())),
             velocity_zone_background: self.velocity_zone_background.and_then(|v| Some(v.into())),
-            velocity_zone_crossfade_ramp: self.velocity_zone_crossfade_ramp.and_then(|v| Some(v.into())),
+            velocity_zone_crossfade_ramp: self
+                .velocity_zone_crossfade_ramp
+                .and_then(|v| Some(v.into())),
             selector_zone_background: self.selector_zone_background.and_then(|v| Some(v.into())),
-            selector_zone_crossfade_ramp: self.selector_zone_crossfade_ramp.and_then(|v| Some(v.into())),
-            view_check_control_enabled_off: self.view_check_control_enabled_off.and_then(|v| Some(v.into())),
-            view_check_control_disabled_on: self.view_check_control_disabled_on.and_then(|v| Some(v.into())),
-            view_check_control_disabled_off: self.view_check_control_disabled_off.and_then(|v| Some(v.into())),
+            selector_zone_crossfade_ramp: self
+                .selector_zone_crossfade_ramp
+                .and_then(|v| Some(v.into())),
+            view_check_control_enabled_off: self
+                .view_check_control_enabled_off
+                .and_then(|v| Some(v.into())),
+            view_check_control_disabled_on: self
+                .view_check_control_disabled_on
+                .and_then(|v| Some(v.into())),
+            view_check_control_disabled_off: self
+                .view_check_control_disabled_off
+                .and_then(|v| Some(v.into())),
             default_blend_factor: self.default_blend_factor.and_then(|v| Some(v.into())),
             icon_blend_factor: self.icon_blend_factor.and_then(|v| Some(v.into())),
             clip_blend_factor: self.clip_blend_factor.and_then(|v| Some(v.into())),
-            note_border_standby_blend_factor: self.note_border_standby_blend_factor.and_then(|v| Some(v.into())),
-            retro_display_blend_factor: self.retro_display_blend_factor.and_then(|v| Some(v.into())),
-            check_control_not_checked_blend_factor: self.check_control_not_checked_blend_factor.and_then(|v| Some(v.into())),
-            mix_surface_area_blend_factor: self.mix_surface_area_blend_factor.and_then(|v| Some(v.into())),
-            text_frame_segment_blend_factor: self.text_frame_segment_blend_factor.and_then(|v| Some(v.into())),
-            note_disabled_selected_blend_factor: self.note_disabled_selected_blend_factor.and_then(|v| Some(v.into())),
+            note_border_standby_blend_factor: self
+                .note_border_standby_blend_factor
+                .and_then(|v| Some(v.into())),
+            retro_display_blend_factor: self
+                .retro_display_blend_factor
+                .and_then(|v| Some(v.into())),
+            check_control_not_checked_blend_factor: self
+                .check_control_not_checked_blend_factor
+                .and_then(|v| Some(v.into())),
+            mix_surface_area_blend_factor: self
+                .mix_surface_area_blend_factor
+                .and_then(|v| Some(v.into())),
+            text_frame_segment_blend_factor: self
+                .text_frame_segment_blend_factor
+                .and_then(|v| Some(v.into())),
+            note_disabled_selected_blend_factor: self
+                .note_disabled_selected_blend_factor
+                .and_then(|v| Some(v.into())),
             background_clip: self.background_clip.and_then(|v| Some(v.into())),
             background_clip_frame: self.background_clip_frame.and_then(|v| Some(v.into())),
-            warper_time_bar_ruler_background: self.warper_time_bar_ruler_background.and_then(|v| Some(v.into())),
-            warper_time_bar_marker_background: self.warper_time_bar_marker_background.and_then(|v| Some(v.into())),
-            min_velocity_note_blend_factor: self.min_velocity_note_blend_factor.and_then(|v| Some(v.into())),
-            striped_background_shade_factor: self.striped_background_shade_factor.and_then(|v| Some(v.into())),
-            non_editable_automation_alpha: self.non_editable_automation_alpha.and_then(|v| Some(v.into())),
-            disabled_context_menu_icon_alpha: self.disabled_context_menu_icon_alpha.and_then(|v| Some(v.into())),
+            warper_time_bar_ruler_background: self
+                .warper_time_bar_ruler_background
+                .and_then(|v| Some(v.into())),
+            warper_time_bar_marker_background: self
+                .warper_time_bar_marker_background
+                .and_then(|v| Some(v.into())),
+            min_velocity_note_blend_factor: self
+                .min_velocity_note_blend_factor
+                .and_then(|v| Some(v.into())),
+            striped_background_shade_factor: self
+                .striped_background_shade_factor
+                .and_then(|v| Some(v.into())),
+            non_editable_automation_alpha: self
+                .non_editable_automation_alpha
+                .and_then(|v| Some(v.into())),
+            disabled_context_menu_icon_alpha: self
+                .disabled_context_menu_icon_alpha
+                .and_then(|v| Some(v.into())),
             clip_border_alpha: Some(ValueWrapper { value: 72 }),
             scroll_bar_alpha: Some(ValueWrapper { value: 100 }),
             scroll_bar_on_hover_alpha: Some(ValueWrapper { value: 255 }),
@@ -420,17 +575,36 @@ impl Into<live11::Theme> for live10::SkinManager {
             poti_needle: self.poti_needle.and_then(|v| Some(v.into())),
             deactivated_poti_needle: self.deactivated_poti_needle.and_then(|v| Some(v.into())),
             transport_off_background: self.transport_off_background.and_then(|v| Some(v.into())),
-            transport_off_disabled_foreground: self.transport_off_disabled_foreground.and_then(|v| Some(v.into())),
-            transport_selection_background: self.transport_selection_background.and_then(|v| Some(v.into())),
+            transport_off_disabled_foreground: self
+                .transport_off_disabled_foreground
+                .and_then(|v| Some(v.into())),
+            transport_selection_background: self
+                .transport_selection_background
+                .and_then(|v| Some(v.into())),
             modulation: self.modulation.and_then(|v| Some(v.into())),
             modulation_disabled: self.modulation_disabled.and_then(|v| Some(v.into())),
             modulation_mouse_over: self.modulation_mouse_over.and_then(|v| Some(v.into())),
-            automation_transform_tool_frame: self.automation_transform_tool_frame.and_then(|v| Some(v.into())),
-            automation_transform_tool_frame_active: self.automation_transform_tool_frame_active.and_then(|v| Some(v.into())),
-            automation_transform_tool_handle: self.automation_transform_tool_handle.and_then(|v| Some(v.into())),
-            automation_transform_tool_handle_active: self.automation_transform_tool_handle_active.and_then(|v| Some(v.into())),
+            automation_transform_tool_frame: self
+                .automation_transform_tool_frame
+                .and_then(|v| Some(v.into())),
+            automation_transform_tool_frame_active: self
+                .automation_transform_tool_frame_active
+                .and_then(|v| Some(v.into())),
+            automation_transform_tool_handle: self
+                .automation_transform_tool_handle
+                .and_then(|v| Some(v.into())),
+            automation_transform_tool_handle_active: self
+                .automation_transform_tool_handle_active
+                .and_then(|v| Some(v.into())),
             // Using some defaults here onwards
-            muted_audition_clip: Some(HexColor { value: common::Color { r: 0xba, g: 0xba, b: 0xba, a: 255 } }),
+            muted_audition_clip: Some(HexColor {
+                value: common::Color {
+                    r: 0xba,
+                    g: 0xba,
+                    b: 0xba,
+                    a: 255,
+                },
+            }),
             // This might be a bit confusing... But I think it's fine.
             linked_track_hover: self.selection_background.and_then(|v| Some(v.into())),
             expression_lane_header_highlight: self.surface_highlight.and_then(|v| Some(v.into())),
@@ -441,7 +615,9 @@ impl Into<live11::Theme> for live10::SkinManager {
             disabled_vu_meter: Some(common::Meter::default_disabled_vu_meter()),
             headphones_vu_meter: Some(common::Meter::default_headphones_vu_meter()),
             sends_only_vu_meter: Some(common::Meter::default_sends_only_vu_meter()),
-            bipolar_gain_reduction_vu_meter: Some(common::Meter::default_bipolar_gain_reduction_vu_meter()),
+            bipolar_gain_reduction_vu_meter: Some(
+                common::Meter::default_bipolar_gain_reduction_vu_meter(),
+            ),
             orange_vu_meter: Some(common::Meter::default_orange_vu_meter()),
         }
     }
