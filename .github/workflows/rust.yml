@@ -8,7 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  BUILD_ARGS: "--bin altc --release --features bin"
+  BUILD_ARGS: "--bin altc --release --features bin --target-dir ./build"
 
 jobs:
   build:
@@ -63,7 +63,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: altc.${{ matrix.platform.target }}
-            path: target/${{ matrix.platform.target }}/release/altc
+            path: build/release/altc*
         
       
     
