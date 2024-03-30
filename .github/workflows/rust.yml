@@ -63,6 +63,11 @@ jobs:
             command: build
             use-cross: ${{ !contains(matrix.platform.target, 'x86_64') }}
             args: ${{ env.BUILD_ARGS }} --target ${{ matrix.platform.target }}
+        - name: upload ${{ matrix.platform.name }} binary
+          uses: actions/upload-artifact@v2
+          with:
+            name: altc.${{ matrix.platform.target }}
+            path: target/${{ matrix.platform.target }}/release/altc
         
       
     
