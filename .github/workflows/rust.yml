@@ -87,7 +87,7 @@ jobs:
       - name: Export Version
         run: echo "PACKAGE_VERSION=$(cargo metadata --format-version=1 --no-deps | jq -r '.packages[0].version')" >> $GITHUB_ENV
       - name: Install wasm-pack
-        run: cargo install wasm-pack --target-dir wasmpack
+        run: "[ -d wasmpack ] || cargo install wasm-pack --target-dir wasmpack"
       - name: Install wasm32-unknown-unknown Toolchain
         run: rustup target add wasm32-unknown-unknown
       - name: Build wasm bundle
