@@ -40,15 +40,16 @@ jobs:
               target: x86_64-pc-windows-msvc
       steps:
         - uses: actions/checkout@v3
+        - name: Run tests
+          run: cargo test --verbose
         - name: Build ${{ matrix.platform.name }} binary
-          if: ${{ !contains(matrix.platform.target, 'apple') }}
+          if: ${{ !contains(matrix.platform.target, 'aarch64-apple-darwin') }}
           uses: actions-rs/cargo@v1
           # We use cross-rs if not running on x86_64 architecture on Linux
           with:
             command: build
             use-cross: ${{ !contains(matrix.platform.target, 'x86_64') }}
             args: ${{ env.BUILD_ARGS }} --target ${{ matrix.platform.target }}
-        - name: Run tests
-          run: cargo test --verbose
+        
       
     
