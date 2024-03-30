@@ -57,7 +57,7 @@ jobs:
           uses: actions-rs/cargo@v1
           with:
             command: build
-            # use-cross: ${{ !contains(matrix.platform.target, 'x86_64') }}
+            use-cross: ${{ !contains(matrix.platform.target, 'x86_64-unknown-linux-gnu') }}
             args: ${{ env.BUILD_ARGS }} --target ${{ matrix.platform.target }}
         - name: Upload ${{ matrix.platform.name }} binary
           uses: actions/upload-artifact@v2
