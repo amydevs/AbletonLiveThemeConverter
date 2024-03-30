@@ -66,12 +66,12 @@ jobs:
         - name: Rename binary
           run: |
             mv target/${{ matrix.platform.target }}/release/altc${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }} \
-              altc.${{ matrix.platform.target }}.${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
+              altc.${{ matrix.platform.target }}${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
         - name: Upload ${{ matrix.platform.name }} binary
           uses: actions/upload-artifact@v4
           with:
             name: ${{ matrix.platform.target }}
-            path: altc.${{ matrix.platform.target }}.${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
+            path: altc.${{ matrix.platform.target }}${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
   build-web:
     name: Build - Web
     # By default, runs on Ubuntu, otherwise, override with the desired os
