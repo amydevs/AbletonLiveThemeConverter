@@ -42,6 +42,17 @@ jobs:
               target: x86_64-pc-windows-msvc
       steps:
         - uses: actions/checkout@v3
+        - name: Set up cargo cache
+          uses: actions/cache@v3
+          with:
+            continue-on-error: false
+            path: |
+              ~/.cargo/bin/
+              ~/.cargo/registry/index/
+              ~/.cargo/registry/cache/
+              ~/.cargo/git/db/
+              target/
+            key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
         - name: Install ${{ matrix.platform.target }} Toolchain
           run: rustup target add ${{ matrix.platform.target }}
         - name: Run tests
