@@ -25,6 +25,7 @@ pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     match version.get(..3) {
         Some("10.") => Some(LiveVersion::Live10),
         Some("11.") => Some(LiveVersion::Live11),
+        Some("12.") => Some(LiveVersion::Live12),
         _ => None,
     }
 }
