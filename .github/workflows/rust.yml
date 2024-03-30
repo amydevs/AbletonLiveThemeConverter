@@ -63,7 +63,7 @@ jobs:
             use-cross: ${{ matrix.platform.use-cross }}
             args: ${{ env.BUILD_ARGS }} --target ${{ matrix.platform.target }}
         - name: Upload ${{ matrix.platform.name }} binary
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v4
           with:
             name: altc.${{ matrix.platform.target }}
             path: target/${{ matrix.platform.target }}/release/altc${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
@@ -100,7 +100,7 @@ jobs:
           npm pack
           cd -
       - name: Upload Web Bundle
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           path: pkg/altc-*.tgz
           name: altc-${{ env.PACKAGE_VERSION }}.tgz
