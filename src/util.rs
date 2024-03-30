@@ -1,4 +1,8 @@
-use quick_xml::{de::from_str, se::Serializer, DeError};
+use std::io::BufRead;
+
+use quick_xml::de::from_str;
+use quick_xml::DeError;
+use quick_xml::{de::from_reader, se::Serializer};
 use regex::Regex;
 use serde::Serialize;
 use wasm_bindgen::prelude::*;
@@ -42,6 +46,14 @@ pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, DeError
         LiveVersion::Live10 => Ok(LiveWrapper::Live10(from_str(xml)?)),
         LiveVersion::Live11 => Ok(LiveWrapper::Live11(from_str(xml)?)),
         LiveVersion::Live12 => Ok(LiveWrapper::Live12(from_str(xml)?)),
+    }
+}
+
+pub fn parse_ask_from_reader(reader: impl BufRead, version: LiveVersion) -> Result<LiveWrapper, DeError> {
+    match version {
+        LiveVersion::Live10 => Ok(LiveWrapper::Live10(from_reader(reader)?)),
+        LiveVersion::Live11 => Ok(LiveWrapper::Live11(from_reader(reader)?)),
+        LiveVersion::Live12 => Ok(LiveWrapper::Live12(from_reader(reader)?)),
     }
 }
 
