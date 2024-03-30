@@ -83,15 +83,15 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: web-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - name: Install wasm-pack
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: wasm-pack
+      # - name: Install wasm-pack
+      #   uses: actions-rs/cargo@v1
+      #   with:
+      #     command: install
+      #     args: wasm-pack
       - name: Install wasm32-unknown-unknown Toolchain
         run: rustup target add wasm32-unknown-unknown
-      # - name: Build wasm bundle
-      #   run: wasm-pack build --target web
+      - name: Build wasm bundle
+        run: wasm-pack build --target web
       - name: Pack wasm bundle
         run: |
           cd pkg
