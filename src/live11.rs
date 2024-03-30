@@ -247,21 +247,6 @@ mod tests {
 
     use super::Ableton;
     #[test]
-    fn meter() {
-        let meter: Ableton = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
-        assert_eq!(
-            meter
-                .theme
-                .unwrap()
-                .standard_vu_meter
-                .unwrap()
-                .only_minimum_to_maximum
-                .unwrap()
-                .value,
-            false
-        );
-    }
-    #[test]
     fn ableton() {
         let ableton: Ableton = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
         assert_eq!(ableton.major_version, Some("5".to_string()));

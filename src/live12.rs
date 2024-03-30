@@ -237,3 +237,32 @@ pub struct Theme {
     pub scrollbar_lcd_track_hover: Option<HexColor>,
     pub scrollbar_mixer_show_on_scroll_handle_hover: Option<HexColor>,
 }
+
+#[skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Ableton {
+    #[serde(rename = "@MajorVersion")]
+    pub major_version: Option<String>,
+    #[serde(rename = "@MinorVersion")]
+    pub minor_version: Option<String>,
+    #[serde(rename = "@SchemaChangeCount")]
+    pub schema_change_count: Option<String>,
+    #[serde(rename = "@Creator")]
+    pub creator: Option<String>,
+    #[serde(rename = "@Revision")]
+    pub revision: Option<String>,
+    #[serde(rename = "Theme")]
+    pub theme: Option<Theme>,
+}
+
+#[cfg(test)]
+mod tests {
+    use quick_xml::de::from_str;
+
+    use super::Ableton;
+    #[test]
+    fn ableton() {
+        let ableton: Ableton = from_str(include_str!("../test_themes/blank_12.ask")).unwrap();
+        assert_eq!(ableton.major_version, Some("5".to_string()));
+    }
+}
