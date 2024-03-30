@@ -39,9 +39,9 @@ jobs:
               os: windows-latest
               target: x86_64-pc-windows-msvc
       steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
         - name: Set up cargo cache
-          uses: actions/cache@v3
+          uses: actions/cache@v4
           with:
             path: |
               ~/.cargo/bin/
@@ -72,9 +72,9 @@ jobs:
     # By default, runs on Ubuntu, otherwise, override with the desired os
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up cargo cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/bin/
