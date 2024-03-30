@@ -23,6 +23,7 @@ jobs:
               target: x86_64-unknown-linux-gnu
             - name: Linux aarch64
               target: aarch64-unknown-linux-gnu
+              use-cross: true
   
             # Mac OS
             - name: MacOS x86_64
@@ -57,7 +58,7 @@ jobs:
           uses: actions-rs/cargo@v1
           with:
             command: build
-            use-cross: ${{ !contains(matrix.platform.target, 'x86_64-unknown-linux-gnu') }}
+            use-cross: ${{ matrix.platform.use-cross }}
             args: ${{ env.BUILD_ARGS }} --target ${{ matrix.platform.target }}
         - name: Upload ${{ matrix.platform.name }} binary
           uses: actions/upload-artifact@v2
