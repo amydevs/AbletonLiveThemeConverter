@@ -64,7 +64,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: altc.${{ matrix.platform.target }}
-            path: build/release/altc*
+            path: target/release/altc
         
       
     
