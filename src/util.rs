@@ -5,6 +5,7 @@ use wasm_bindgen::prelude::*;
 
 use crate::live10;
 use crate::live11;
+use crate::live12;
 
 pub const LIVE_REGEX_STRING: &str = r#"MinorVersion\s*=\s*"(\S+)""#;
 
@@ -13,6 +14,7 @@ pub const LIVE_REGEX_STRING: &str = r#"MinorVersion\s*=\s*"(\S+)""#;
 pub enum LiveVersion {
     Live10 = 10,
     Live11 = 11,
+    Live12 = 12,
 }
 
 #[wasm_bindgen()]
@@ -31,12 +33,14 @@ pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
 pub enum LiveWrapper {
     Live10(live10::Ableton),
     Live11(live11::Ableton),
+    Live12(live12::Ableton),
 }
 
 pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, DeError> {
     match version {
         LiveVersion::Live10 => Ok(LiveWrapper::Live10(from_str(xml)?)),
         LiveVersion::Live11 => Ok(LiveWrapper::Live11(from_str(xml)?)),
+        LiveVersion::Live12 => Ok(LiveWrapper::Live12(from_str(xml)?)),
     }
 }
 
@@ -47,19 +51,33 @@ pub fn generate_ask(live: &LiveWrapper) -> Result<String, DeError> {
     match live {
         LiveWrapper::Live10(live10) => live10.serialize(ser)?,
         LiveWrapper::Live11(live11) => live11.serialize(ser)?,
+        LiveWrapper::Live12(live12) => live12.serialize(ser)?,
     }
     Ok(buffer)
 }
 
-pub fn convert(live: LiveWrapper, version: LiveVersion) -> LiveWrapper {
-    match version {
-        LiveVersion::Live10 => match live {
+pub fn convert(from: LiveWrapper, to_version: LiveVersion) -> LiveWrapper {
+    match to_version {
+        LiveVersion::Live10 => match from {
+            LiveWrapper::Live10(_) => from,
             LiveWrapper::Live11(live11) => LiveWrapper::Live10(live11.into()),
-            LiveWrapper::Live10(_) => live,
+            LiveWrapper::Live12(live12) => {
+                let live11: live11::Ableton = live12.into();
+                LiveWrapper::Live10(live11.into())
+            },
         },
-        LiveVersion::Live11 => match live {
+        LiveVersion::Live11 => match from {
             LiveWrapper::Live10(live10) => LiveWrapper::Live11(live10.into()),
-            LiveWrapper::Live11(_) => live,
+            LiveWrapper::Live11(_) => from,
+            LiveWrapper::Live12(live12) => LiveWrapper::Live11(live12.into()),
+        },
+        LiveVersion::Live12 => match from {
+            LiveWrapper::Live10(live10) => {
+                let live11: live11::Ableton = live10.into();
+                LiveWrapper::Live12(live11.into())
+            },
+            LiveWrapper::Live11(live11) => LiveWrapper::Live12(live11.into()),
+            LiveWrapper::Live12(_) => from,
         },
     }
 }
@@ -110,6 +128,7 @@ mod tests {
         let xmls = [
             include_str!("../test_themes/blank_10.ask"),
             include_str!("../test_themes/blank_11.ask"),
+            include_str!("../test_themes/blank_12.ask"),
         ];
         for xml in xmls {
             let version = super::get_live_version(xml).unwrap();
@@ -117,6 +136,7 @@ mod tests {
             match live {
                 LiveWrapper::Live10(_) => (),
                 LiveWrapper::Live11(_) => (),
+                LiveWrapper::Live12(_) => (),
             }
         }
     }
