@@ -3,6 +3,7 @@ name: Rust
 on:
   push:
     branches: [ "master" ]
+    tags: [ "**" ]
   pull_request:
     branches: [ "master" ]
 
@@ -65,7 +66,7 @@ jobs:
         - name: Upload ${{ matrix.platform.name }} binary
           uses: actions/upload-artifact@v4
           with:
-            name: altc.${{ matrix.platform.target }}
+            name: altc.${{ matrix.platform.target }}${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
             path: target/${{ matrix.platform.target }}/release/altc${{ contains(matrix.platform.target, 'windows') && '.exe' || '' }}
   build-web:
     name: Build - Web
@@ -84,8 +85,6 @@ jobs:
             target/
             wasmpack/
           key: web-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - name: Export Version
-        run: echo "PACKAGE_VERSION=$(cargo metadata --format-version=1 --no-deps | jq -r '.packages[0].version')" >> $GITHUB_ENV
       - name: Install wasm-pack
         run: "[ -d wasmpack ] || cargo install wasm-pack --target-dir wasmpack"
       - name: Install wasm32-unknown-unknown Toolchain
@@ -97,11 +96,27 @@ jobs:
           cd pkg
           npm pack
           cd -
-      - name: Upload Web Bundle
+      - name: Upload web bundle
         uses: actions/upload-artifact@v4
         with:
           path: pkg/altc-*.tgz
-          name: altc-${{ env.PACKAGE_VERSION }}.tgz
+          name: altc.web.tgz
+  release:
+    name: Release
+    runs-on: 'ubuntu-latest'
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    needs: [ build, build-web ]
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*
+
       
 
 
