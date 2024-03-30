@@ -10,7 +10,7 @@ impl Into<live10::Ableton> for live11::Ableton {
     fn into(self) -> live10::Ableton {
         live10::Ableton {
             major_version: Some("5".to_owned()),
-            minor_version: Some("10.0_373".to_owned()),
+            minor_version: Some("10.0_377".to_owned()),
             schema_change_count: Some("1".to_owned()),
             creator: self.creator,
             revision: self.revision,
@@ -292,7 +292,7 @@ impl Into<live11::Ableton> for live10::Ableton {
     fn into(self) -> live11::Ableton {
         live11::Ableton {
             major_version: Some("5".to_owned()),
-            minor_version: Some("11.0_432".to_owned()),
+            minor_version: Some("11.0_436".to_owned()),
             schema_change_count: Some("3".to_owned()),
             creator: self.creator,
             revision: self.revision,
