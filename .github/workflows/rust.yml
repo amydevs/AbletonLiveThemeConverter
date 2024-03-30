@@ -104,6 +104,7 @@ jobs:
         run: |
           mv pkg/altc-*.tgz \
             altc.wasm32-unknown-unknown.tgz
+        shell: bash
       - name: Upload web bundle
         uses: actions/upload-artifact@v4
         with:
