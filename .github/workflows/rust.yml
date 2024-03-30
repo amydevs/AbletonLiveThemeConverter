@@ -83,6 +83,8 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: web-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Export Version
+        run: echo "PACKAGE_VERSION=$(cargo metadata --format-version=1 --no-deps | jq -r '.packages[0].version')" >> $GITHUB_ENV
       - name: Install wasm-pack
         uses: actions-rs/cargo@v1
         with:
@@ -101,6 +103,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: pkg/altc-*.tgz
+          name: altc-${{ env.PACKAGE_VERSION }}.tgz
       
 
 
