@@ -53,7 +53,9 @@ jobs:
         - name: Install ${{ matrix.platform.target }} Toolchain
           run: rustup target add ${{ matrix.platform.target }}
         - name: Run tests
-          run: cargo test --verbose
+          uses: actions-rs/cargo@v1
+          with:
+            command: test
         - name: Build ${{ matrix.platform.name }} binary
           uses: actions-rs/cargo@v1
           with:
@@ -65,9 +67,8 @@ jobs:
           with:
             name: altc.${{ matrix.platform.target }}
             path: target/${{ matrix.platform.target }}/release/altc
-
   build-web:
-    name: Build - ${{ matrix.platform.name }}
+    name: Build - Web
     # By default, runs on Ubuntu, otherwise, override with the desired os
     runs-on: 'ubuntu-latest'
     steps:
@@ -82,5 +83,27 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: web-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Install wasm-pack
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: wasm-pack
+      - name: Install wasm32-unknown-unknown Toolchain
+        run: rustup target add wasm32-unknown-unknown
+      - name: Build wasm bundle
+        run: wasm-pack build --target web
+      - name: Pack wasm bundle
+        run: |
+          cd pkg
+          npm bundle
+          cd -
+      - name: Upload Web Bundle
+        uses: actions/upload-artifact@v2
+        with:
+          path: pkg/altc-*.tgz
+      
+
+
+      
       
     
