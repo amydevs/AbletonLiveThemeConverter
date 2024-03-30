@@ -7,6 +7,7 @@ pub fn parse_live_version(s: &str) -> Result<util::LiveVersion, String> {
         Ok(n) => match n {
             10 => Ok(util::LiveVersion::Live10),
             11 => Ok(util::LiveVersion::Live11),
+            12 => Ok(util::LiveVersion::Live12),
             _ => Err(format!("{} is not a valid version number.", s)),
         },
         _ => Err(format!("{} is not a valid version number.", s)),
