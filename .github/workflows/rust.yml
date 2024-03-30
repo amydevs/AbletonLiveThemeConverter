@@ -8,7 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  BUILD_ARGS: "--release --features bin"
+  BUILD_ARGS: "--bin altc --release --features bin"
 
 jobs:
   build:
@@ -45,7 +45,6 @@ jobs:
         - name: Set up cargo cache
           uses: actions/cache@v3
           with:
-            continue-on-error: false
             path: |
               ~/.cargo/bin/
               ~/.cargo/registry/index/
