@@ -29,10 +29,12 @@ jobs:
   
             # Mac OS
             - name: MacOS x86_64
+              os: macos-latest
               target: x86_64-apple-darwin
             - name: MacOS aarch64
+              os: macos-latest
               target: aarch64-apple-darwin
-  
+
             # Windows
             - name: Windows x86_64
               # Use another GitHub action OS
@@ -40,8 +42,7 @@ jobs:
               target: x86_64-pc-windows-msvc
       steps:
         - uses: actions/checkout@v3
-        - name: Install ${{ matrix.platform.target }} deps
-          if: ${{ contains(matrix.platform.target, 'apple') }}
+        - name: Install ${{ matrix.platform.target }} Toolchain
           run: rustup target add ${{ matrix.platform.target }}
         - name: Run tests
           run: cargo test --verbose
