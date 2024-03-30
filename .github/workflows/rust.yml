@@ -65,6 +65,22 @@ jobs:
           with:
             name: altc.${{ matrix.platform.target }}
             path: target/${{ matrix.platform.target }}/release/altc
-        
+
+  build-web:
+    name: Build - ${{ matrix.platform.name }}
+    # By default, runs on Ubuntu, otherwise, override with the desired os
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up cargo cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: web-cargo-${{ hashFiles('**/Cargo.lock') }}
       
     
