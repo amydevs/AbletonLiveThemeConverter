@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ableton MajorVersion="5" MinorVersion="10.0_373" SchemaChangeCount="1" Creator="" Revision="">
+  <SkinManager>
+    <ControlForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlForeground>
+    <TextDisabled>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TextDisabled>
+    <ControlDisabled>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlDisabled>
+    <MeterBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </MeterBackground>
+    <SurfaceHighlight>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SurfaceHighlight>
+    <SurfaceArea>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SurfaceArea>
+    <Desktop>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Desktop>
+    <ViewCheckControlEnabledOn>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ViewCheckControlEnabledOn>
+    <ScrollbarInnerHandle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ScrollbarInnerHandle>
+    <ScrollbarInnerTrack>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ScrollbarInnerTrack>
+    <ScrollbarOuterHandle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ScrollbarOuterHandle>
+    <ScrollbarOuterTrack>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ScrollbarOuterTrack>
+    <ScrollbarLCDHandle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ScrollbarLCDHandle>
+    <ScrollbarLCDTrack>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ScrollbarLCDTrack>
+    <DetailViewBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DetailViewBackground>
+    <PreferencesTab>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </PreferencesTab>
+    <SelectionFrame>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SelectionFrame>
+    <ControlBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlBackground>
+    <ControlFillHandle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlFillHandle>
+    <ChosenDefault>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ChosenDefault>
+    <ChosenRecord>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ChosenRecord>
+    <ChosenPreListen>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ChosenPreListen>
+    <ImplicitArm>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ImplicitArm>
+    <RangeDefault>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RangeDefault>
+    <RangeDisabled>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RangeDisabled>
+    <RangeDisabledOff>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RangeDisabledOff>
+    <LearnMidi>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </LearnMidi>
+    <LearnKey>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </LearnKey>
+    <LearnMacro>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </LearnMacro>
+    <RangeEditField>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RangeEditField>
+    <RangeEditField2>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RangeEditField2>
+    <BipolReset>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BipolReset>
+    <ChosenAlternative>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ChosenAlternative>
+    <ChosenAlert>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ChosenAlert>
+    <ChosenPlay>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ChosenPlay>
+    <Clip1>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip1>
+    <Clip2>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip2>
+    <Clip3>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip3>
+    <Clip4>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip4>
+    <Clip5>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip5>
+    <Clip6>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip6>
+    <Clip7>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip7>
+    <Clip8>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip8>
+    <Clip9>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip9>
+    <Clip10>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip10>
+    <Clip11>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip11>
+    <Clip12>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip12>
+    <Clip13>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip13>
+    <Clip14>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip14>
+    <Clip15>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip15>
+    <Clip16>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Clip16>
+    <ClipText>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ClipText>
+    <ClipBorder>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ClipBorder>
+    <SelectionBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SelectionBackground>
+    <StandbySelectionBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </StandbySelectionBackground>
+    <SelectionForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SelectionForeground>
+    <StandbySelectionForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </StandbySelectionForeground>
+    <SurfaceBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SurfaceBackground>
+    <AutomationColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationColor>
+    <AutomationGrid>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationGrid>
+    <LoopColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </LoopColor>
+    <OffGridLoopColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </OffGridLoopColor>
+    <ArrangementRulerMarkings>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ArrangementRulerMarkings>
+    <DetailViewRulerMarkings>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DetailViewRulerMarkings>
+    <ShadowDark>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ShadowDark>
+    <ShadowLight>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ShadowLight>
+    <DisplayBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DisplayBackground>
+    <AbletonColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AbletonColor>
+    <WaveformColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </WaveformColor>
+    <VelocityColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </VelocityColor>
+    <Alert>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Alert>
+    <ControlOnForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlOnForeground>
+    <ControlOffForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlOffForeground>
+    <ControlOnDisabledForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlOnDisabledForeground>
+    <ControlOffDisabledForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlOffDisabledForeground>
+    <ControlOnAlternativeForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlOnAlternativeForeground>
+    <ControlTextBack>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlTextBack>
+    <ControlContrastFrame>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlContrastFrame>
+    <ControlSelectionFrame>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlSelectionFrame>
+    <ControlContrastTransport>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ControlContrastTransport>
+    <Progress>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Progress>
+    <ProgressText>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ProgressText>
+    <TransportProgress>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TransportProgress>
+    <ClipSlotButton>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ClipSlotButton>
+    <BrowserBar>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BrowserBar>
+    <BrowserBarOverlayHintTextColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BrowserBarOverlayHintTextColor>
+    <BrowserDisabledItem>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BrowserDisabledItem>
+    <BrowserSampleWaveform>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BrowserSampleWaveform>
+    <AutomationDisabled>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationDisabled>
+    <AutomationMouseOver>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationMouseOver>
+    <MidiNoteMaxVelocity>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </MidiNoteMaxVelocity>
+    <RetroDisplayBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayBackground>
+    <RetroDisplayBackgroundLine>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayBackgroundLine>
+    <RetroDisplayForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayForeground>
+    <RetroDisplayForeground2>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayForeground2>
+    <RetroDisplayForegroundDisabled>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayForegroundDisabled>
+    <RetroDisplayGreen>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayGreen>
+    <RetroDisplayRed>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayRed>
+    <RetroDisplayHandle1>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayHandle1>
+    <RetroDisplayHandle2>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayHandle2>
+    <RetroDisplayScaleText>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </RetroDisplayScaleText>
+    <ThresholdLineColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ThresholdLineColor>
+    <GainReductionLineColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </GainReductionLineColor>
+    <InputCurveColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </InputCurveColor>
+    <InputCurveOutlineColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </InputCurveOutlineColor>
+    <OutputCurveColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </OutputCurveColor>
+    <OutputCurveOutlineColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </OutputCurveOutlineColor>
+    <SpectrumDefaultColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SpectrumDefaultColor>
+    <SpectrumAlternativeColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SpectrumAlternativeColor>
+    <SpectrumGridLines>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SpectrumGridLines>
+    <Operator1>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Operator1>
+    <Operator2>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Operator2>
+    <Operator3>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Operator3>
+    <Operator4>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Operator4>
+    <DrumRackScroller1>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DrumRackScroller1>
+    <DrumRackScroller2>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DrumRackScroller2>
+    <FilledDrumRackPad>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </FilledDrumRackPad>
+    <SurfaceAreaFocus>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SurfaceAreaFocus>
+    <FreezeColor>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </FreezeColor>
+    <GridLabel>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </GridLabel>
+    <GridLineBase>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </GridLineBase>
+    <ArrangerGridTiles>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ArrangerGridTiles>
+    <DetailGridTiles>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DetailGridTiles>
+    <GridGuideline>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </GridGuideline>
+    <OffGridGuideline>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </OffGridGuideline>
+    <TreeColumnHeadBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeColumnHeadBackground>
+    <TreeColumnHeadForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeColumnHeadForeground>
+    <TreeColumnHeadSelected>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeColumnHeadSelected>
+    <TreeColumnHeadFocus>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeColumnHeadFocus>
+    <TreeColumnHeadControl>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeColumnHeadControl>
+    <TreeRowCategoryForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeRowCategoryForeground>
+    <TreeRowCategoryBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TreeRowCategoryBackground>
+    <SearchIndication>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SearchIndication>
+    <SearchIndicationStandby>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SearchIndicationStandby>
+    <KeyZoneBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </KeyZoneBackground>
+    <KeyZoneCrossfadeRamp>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </KeyZoneCrossfadeRamp>
+    <VelocityZoneBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </VelocityZoneBackground>
+    <VelocityZoneCrossfadeRamp>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </VelocityZoneCrossfadeRamp>
+    <SelectorZoneBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SelectorZoneBackground>
+    <SelectorZoneCrossfadeRamp>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </SelectorZoneCrossfadeRamp>
+    <ViewCheckControlEnabledOff>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ViewCheckControlEnabledOff>
+    <ViewCheckControlDisabledOn>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ViewCheckControlDisabledOn>
+    <ViewCheckControlDisabledOff>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ViewCheckControlDisabledOff>
+    <DefaultBlendFactor Value="0.0"/>
+    <IconBlendFactor Value="0.0"/>
+    <ClipBlendFactor Value="0.0"/>
+    <NoteBorderStandbyBlendFactor Value="0.0"/>
+    <RetroDisplayBlendFactor Value="0.0"/>
+    <CheckControlNotCheckedBlendFactor Value="0.0"/>
+    <MixSurfaceAreaBlendFactor Value="0.0"/>
+    <TextFrameSegmentBlendFactor Value="0.0"/>
+    <VelocityEditorForegroundSelectedBlendFactor Value="0.0"/>
+    <NoteDisabledSelectedBlendFactor Value="0.0"/>
+    <BackgroundClip>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BackgroundClip>
+    <BackgroundClipFrame>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BackgroundClipFrame>
+    <WarperTimeBarRulerBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </WarperTimeBarRulerBackground>
+    <WarperTimeBarMarkerBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </WarperTimeBarMarkerBackground>
+    <MinVelocityNoteBlendFactor Value="0.0"/>
+    <StripedBackgroundShadeFactor Value="0.0"/>
+    <AutomationLaneHeaderAlpha Value="0"/>
+    <AutomationLaneClipBodyAlpha Value="0"/>
+    <NonEditableAutomationAlpha Value="0"/>
+    <DisabledContextMenuIconAlpha Value="0"/>
+    <BipolarPotiTriangle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </BipolarPotiTriangle>
+    <Poti>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Poti>
+    <DeactivatedPoti>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DeactivatedPoti>
+    <PotiNeedle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </PotiNeedle>
+    <DeactivatedPotiNeedle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </DeactivatedPotiNeedle>
+    <TransportOffBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TransportOffBackground>
+    <TransportOffDisabledForeground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TransportOffDisabledForeground>
+    <TransportSelectionBackground>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </TransportSelectionBackground>
+    <Modulation>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </Modulation>
+    <ModulationDisabled>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ModulationDisabled>
+    <ModulationMouseOver>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </ModulationMouseOver>
+    <AutomationTransformToolFrame>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationTransformToolFrame>
+    <AutomationTransformToolFrameActive>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationTransformToolFrameActive>
+    <AutomationTransformToolHandle>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationTransformToolHandle>
+    <AutomationTransformToolHandleActive>
+      <R Value="0"/>
+      <G Value="0"/>
+      <B Value="0"/>
+      <Alpha Value="0"/>
+    </AutomationTransformToolHandleActive>
+  </SkinManager>
+</Ableton>
