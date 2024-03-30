@@ -1,5 +1,3 @@
-extern crate proc_macro;
-
 use std::collections::HashSet;
 use std::fs;
 
@@ -9,7 +7,7 @@ use proc_macro2::TokenStream;
 use quick_xml::events::Event;
 use quick_xml::reader::Reader;
 use quote::quote;
-use syn::{parse_macro_input, parse_quote, Field, Fields};
+use syn::{parse::ParseStream, parse_macro_input, parse_quote, Attribute, Field, Fields};
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -74,7 +72,26 @@ fn main() {
                                 let field_tok: TokenStream = quote!(
                                     pub #converted_name_tok: Option<#class_type_tok>,
                                 );
-                                println!("{}", field_tok);
+                                syn::parse::Parser::parse2(
+                                    |input: ParseStream<'_>| {
+                                        ::syn::Result::Ok({
+                                            let mut field: Field =
+                                                Field::parse_named(input).unwrap();
+                                            if name.contains("LCD") {
+                                                let attr: Attribute =
+                                                    parse_quote!(#[serde(rename = #name)]);
+                                                field.attrs.push(attr);
+                                            }
+                                            println!("{},", quote!(#field));
+                                        })
+                                    },
+                                    field_tok,
+                                );
+
+                                // let input = parse_macro_input!();
+                                // let field: Field = syn::parse::Parser::parse2
+                                // let field: Field = Field::parse_named(field_tok).unwrap();
+                                // println!("{:?}", field);
                             }
                         }
                     }
@@ -96,7 +113,7 @@ fn main() {
 fn class_to_type(class: &[u8]) -> Option<String> {
     match class {
         b"RemoteableInt" => Some("ValueWrapper<i32>".to_string()),
-        b"RemoteableColor" => Some("HexColor".to_string()),
+        b"RemoteableColor" => Some("RGBAColor".to_string()),
         b"UserFloat" => Some("ValueWrapper<f32>".to_string()),
         b"RemoteableDouble" => Some("ValueWrapper<f64>".to_string()),
         b"RemoteableFloat" => Some("ValueWrapper<f32>".to_string()),

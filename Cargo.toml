@@ -31,7 +31,7 @@ serde_with = "3.7"
 # bin stuff
 clap = { version = "4.5", features = ["derive"] , optional = true }
 # schemagen stuff
-syn = { version = "2.0", features = ["parsing", "printing"], optional = true }
+syn = { version = "2.0", features = ["parsing", "printing", "extra-traits"], optional = true }
 quote = { version = "1.0", optional = true }
 proc-macro2 = { version = "1.0", optional = true }
 convert_case = { version = "0.6", optional = true }
