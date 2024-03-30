@@ -1112,7 +1112,7 @@ impl Into<live12::Theme> for live11::Theme {
             transport_off_background: self.transport_off_background,
             transport_off_disabled_foreground: self.transport_off_disabled_foreground,
             // using the background and the foreground the same
-            transport_off_foreground: self.transport_off_background,
+            transport_off_foreground: self.control_off_foreground,
             transport_selection_background: self.transport_selection_background,
             modulation: self.modulation,
             modulation_disabled: self.modulation_disabled,
