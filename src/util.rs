@@ -24,8 +24,8 @@ pub enum LiveVersion {
 #[wasm_bindgen()]
 pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     let re = Regex::new(LIVE_REGEX_STRING).unwrap();
-    let caps = re.captures(xml).unwrap();
-    let version = caps.get(1).unwrap().as_str();
+    let caps = re.captures(xml)?;
+    let version = caps.get(1)?.as_str();
     match version.get(..3) {
         Some("10.") => Some(LiveVersion::Live10),
         Some("11.") => Some(LiveVersion::Live11),
