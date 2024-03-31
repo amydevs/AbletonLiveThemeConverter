@@ -22,6 +22,20 @@ pub enum LiveVersion {
     Live12 = 12,
 }
 
+impl LiveVersion {
+    pub fn from_u8(value: u8) -> Option<Self> {
+        match value {
+            10 => Some(LiveVersion::Live10),
+            11 => Some(LiveVersion::Live11),
+            12 => Some(LiveVersion::Live12),
+            _ => None,
+        }
+    }
+    pub fn to_u8(&self) -> u8 {
+        *self as u8
+    }
+}
+
 #[wasm_bindgen()]
 pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     let re = Regex::new(LIVE_REGEX_STRING).unwrap();

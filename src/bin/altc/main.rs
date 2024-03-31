@@ -1,4 +1,4 @@
-use altc::util;
+use altc::util::{self, LiveVersion};
 use clap::Parser;
 use std::{
     borrow::BorrowMut,
@@ -8,15 +8,10 @@ use std::{
 };
 
 pub fn parse_live_version(s: &str) -> Result<util::LiveVersion, String> {
-    match s.parse::<u8>() {
-        Ok(n) => match n {
-            10 => Ok(util::LiveVersion::Live10),
-            11 => Ok(util::LiveVersion::Live11),
-            12 => Ok(util::LiveVersion::Live12),
-            _ => Err(format!("{} is not a valid version number.", s)),
-        },
-        _ => Err(format!("{} is not a valid version number.", s)),
-    }
+    s.parse::<u8>()
+        .ok()
+        .and_then(|n| LiveVersion::from_u8(n))
+        .ok_or(format!("{} is not a valid version number.", s))
 }
 
 #[derive(Parser)]
