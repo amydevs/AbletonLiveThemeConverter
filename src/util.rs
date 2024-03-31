@@ -15,6 +15,7 @@ pub const LIVE_REGEX_STRING: &str = r#"MinorVersion\s*=\s*"(\S+)""#;
 
 #[wasm_bindgen]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LiveVersion {
     Live10 = 10,
     Live11 = 11,
