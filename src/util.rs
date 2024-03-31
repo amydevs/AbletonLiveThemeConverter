@@ -49,7 +49,10 @@ pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, DeError
     }
 }
 
-pub fn parse_ask_from_reader(reader: impl BufRead, version: LiveVersion) -> Result<LiveWrapper, DeError> {
+pub fn parse_ask_from_reader(
+    reader: impl BufRead,
+    version: LiveVersion,
+) -> Result<LiveWrapper, DeError> {
     match version {
         LiveVersion::Live10 => Ok(LiveWrapper::Live10(from_reader(reader)?)),
         LiveVersion::Live11 => Ok(LiveWrapper::Live11(from_reader(reader)?)),
@@ -77,7 +80,7 @@ pub fn convert(from: LiveWrapper, to_version: LiveVersion) -> LiveWrapper {
             LiveWrapper::Live12(live12) => {
                 let live11: live11::Ableton = live12.into();
                 LiveWrapper::Live10(live11.into())
-            },
+            }
         },
         LiveVersion::Live11 => match from {
             LiveWrapper::Live10(live10) => LiveWrapper::Live11(live10.into()),
@@ -88,7 +91,7 @@ pub fn convert(from: LiveWrapper, to_version: LiveVersion) -> LiveWrapper {
             LiveWrapper::Live10(live10) => {
                 let live11: live11::Ableton = live10.into();
                 LiveWrapper::Live12(live11.into())
-            },
+            }
             LiveWrapper::Live11(live11) => LiveWrapper::Live12(live11.into()),
             LiveWrapper::Live12(_) => from,
         },

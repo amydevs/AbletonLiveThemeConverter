@@ -1131,7 +1131,7 @@ impl Into<live12::Theme> for live11::Theme {
                     g: 0x99,
                     b: 0x99,
                     a: 0xdf,
-                }
+                },
             }),
             deactivated_clip_header_foreground: Some(HexColor {
                 value: Color {
@@ -1139,7 +1139,7 @@ impl Into<live12::Theme> for live11::Theme {
                     g: 0x39,
                     b: 0x39,
                     a: 0xff,
-                }
+                },
             }),
             // this is a toggle, use chosen default
             scale_awareness: self.chosen_default,

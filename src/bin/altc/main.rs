@@ -1,6 +1,11 @@
 use altc::util;
 use clap::Parser;
-use std::{borrow::BorrowMut, fs, io::{Cursor, Seek, Write}, path};
+use std::{
+    borrow::BorrowMut,
+    fs,
+    io::{Cursor, Seek, Write},
+    path,
+};
 
 pub fn parse_live_version(s: &str) -> Result<util::LiveVersion, String> {
     match s.parse::<u8>() {
@@ -60,9 +65,12 @@ fn main() {
         Ok(ask) => ask,
         Err(err) => {
             let position = reader.stream_position().unwrap();
-            let line_number = ask_file[..position as usize].chars().filter(|x| *x == '\n').count();
+            let line_number = ask_file[..position as usize]
+                .chars()
+                .filter(|x| *x == '\n')
+                .count();
             eprintln!("Could not parse .ask theme file: {}", &args.ask_path);
-            eprintln!("Error on line {}: {}", line_number, err.to_string());
+            eprintln!("Error on line {}: {}", line_number, err);
             return;
         }
     };
@@ -80,7 +88,7 @@ fn main() {
         let mut output = String::new();
         if let Some(parent) = path.parent() {
             output.push_str(parent.to_str().unwrap());
-            output.push_str("/");
+            output.push('/');
         }
         // this should never fail, because it must be a file
         output += &format!(
