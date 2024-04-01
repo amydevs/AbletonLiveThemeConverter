@@ -11,7 +11,7 @@ AltC is a command line tool built in Rust that converts any Live >= 10 theme to 
 
 ### Web
 
-You can visit [https://amydev.me/altc-gui/](https://amydev.me/altc-gui/) to access the web version of the converted.
+You can visit [https://amydev.me/altc-gui/](https://amydev.me/altc-gui/) to access the web version of the converter.
 
 ### CLI
 
