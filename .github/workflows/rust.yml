@@ -51,6 +51,7 @@ jobs:
               ~/.cargo/git/db/
               target/
             key: ${{ matrix.platform.target }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+            restore-keys: ${{ matrix.platform.target }}-cargo-
         - name: Install ${{ matrix.platform.target }} Toolchain
           run: rustup target add ${{ matrix.platform.target }}
         - name: Run tests
@@ -77,6 +78,9 @@ jobs:
     name: Build - Web
     # By default, runs on Ubuntu, otherwise, override with the desired os
     runs-on: 'ubuntu-latest'
+    env:
+      CARGO_INSTALLS: |
+        wasm-pack
     steps:
       - uses: actions/checkout@v4
       - name: Set up cargo cache
@@ -88,10 +92,23 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             target/
-            wasmpack/
           key: web-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - name: Install wasm-pack
-        run: "[ -d wasmpack ] || cargo install wasm-pack --target-dir wasmpack"
+          restore-keys: web-cargo-
+      - name: Set up cargo install cache
+        uses: actions/cache@v4
+        with:
+          path: installs
+          key: |
+            web-installs
+            ${{ env.CARGO_INSTALLS }}
+          restore-keys: web-installs
+      - name: Install cargo dependencies
+        run: |
+          while IFS= read -r package; do
+            if [ "$package" != "" ]; then 
+              cargo install "$package" --target-dir "installs/$package" || true
+            fi;
+          done <<< "$CARGO_INSTALLS"
       - name: Install wasm32-unknown-unknown Toolchain
         run: rustup target add wasm32-unknown-unknown
       - name: Build wasm bundle
