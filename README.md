@@ -3,8 +3,6 @@
 <a href="https://www.buymeacoffee.com/amydev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 108px !important;" ></a>
 [![Rust](https://github.com/amydevs/AbletonLiveThemeConverter/actions/workflows/rust.yml/badge.svg?branch=master&event=push)](https://github.com/amydevs/AbletonLiveThemeConverter/actions/workflows/rust.yml)
 
-## About
-
 AltC is a command line tool built in Rust that converts any Live >= 10 theme to be compatible with any other Live version >= 10. It does this by updating the schema of the XML files, as well as translating between RGBA values to hex color values.
 
 ## Basic Usage
