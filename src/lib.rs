@@ -613,7 +613,7 @@ impl Into<live11::Theme> for live10::SkinManager {
             linked_track_hover: self.selection_background.and_then(|v| Some(v.into())),
             expression_lane_header_highlight: self.surface_highlight.and_then(|v| Some(v.into())),
             // This is the scrollbar on the same surface, should look good enough
-            zoom_pan_handle: self.scrollbar_outer_handle.and_then(|v| Some(v.into())),
+            zoom_pan_handle: self.surface_area.and_then(|v| Some(v.into())),
             standard_vu_meter: Some(common::Meter::default_standard_vu_meter()),
             overload_vu_meter: Some(common::Meter::default_overlad_vu_meter()),
             disabled_vu_meter: Some(common::Meter::default_disabled_vu_meter()),
