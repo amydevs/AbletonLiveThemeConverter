@@ -24,7 +24,7 @@ required-features = ["schemagen"]
 [features]
 default = ["bin"]
 bin = ["clap"]
-schemagen = ["clap", "syn", "quote", "proc-macro2", "convert_case"]
+schemagen = ["clap", "syn", "quote", "proc-macro2", "convert_case", "prettyplease"]
 
 [dependencies]
 quick-xml = { version = "0", features = ["serialize"] }
@@ -39,3 +39,4 @@ syn = { version = "2", features = ["parsing", "printing", "extra-traits"], optio
 quote = { version = "1", optional = true }
 proc-macro2 = { version = "1", optional = true }
 convert_case = { version = "0.6", optional = true }
+prettyplease = { version = "0.2.17", optional = true }
