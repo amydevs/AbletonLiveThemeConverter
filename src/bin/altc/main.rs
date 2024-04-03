@@ -60,7 +60,7 @@ fn main() {
         Ok(ask) => ask,
         Err(err) => {
             let position = reader.stream_position().unwrap();
-            let line_number = ask_file[..position as usize]
+            let line_number = 1 + ask_file[..position as usize]
                 .chars()
                 .filter(|x| *x == '\n')
                 .count();
