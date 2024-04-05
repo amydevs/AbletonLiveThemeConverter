@@ -1,4 +1,7 @@
-use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
+use serde::{
+    de::{self},
+    Deserialize, Deserializer, Serialize, Serializer,
+};
 use serde_with::skip_serializing_none;
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
@@ -30,10 +33,13 @@ impl Default for Color {
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct RGBAColor {
+    #[serde(deserialize_with = "deserialize_coerce_u8")]
     pub r: ValueWrapper<u8>,
+    #[serde(deserialize_with = "deserialize_coerce_u8")]
     pub g: ValueWrapper<u8>,
+    #[serde(deserialize_with = "deserialize_coerce_u8")]
     pub b: ValueWrapper<u8>,
-    #[serde(rename = "Alpha")]
+    #[serde(rename = "Alpha", deserialize_with = "deserialize_coerce_u8")]
     pub a: ValueWrapper<u8>,
 }
 
@@ -64,6 +70,22 @@ impl Into<Color> for RGBAColor {
             a: self.a.value,
         }
     }
+}
+
+fn deserialize_coerce_u8<'de, D>(deserializer: D) -> Result<ValueWrapper<u8>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let string_val: ValueWrapper<String> = ValueWrapper::deserialize(deserializer)?;
+    if let Ok(val) = string_val.value.parse() {
+        return Ok(ValueWrapper { value: val });
+    }
+    if let Ok(val) = string_val.value.parse::<f64>() {
+        return Ok(ValueWrapper { value: val as u8 });
+    }
+    Err(de::Error::custom(
+        "could not parse or coerce RGBA color string to integer",
+    ))
 }
 
 #[skip_serializing_none]
@@ -453,6 +475,7 @@ impl Meter {
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
+    use serde::de::Error;
 
     use super::{HexColor, RGBAColor, ValueWrapper};
     #[test]
@@ -482,6 +505,29 @@ mod tests {
         assert_eq!(rgba.g.value, 2);
         assert_eq!(rgba.b.value, 3);
         assert_eq!(rgba.a.value, 4);
+        let rgba_floats: RGBAColor = from_str(
+            r#"
+            <ControlForeground>
+                <R Value="1.0"/>
+                <G Value="-0.1"/>
+                <B Value="255.1"/>
+                <Alpha Value="256"/>
+            </ControlForeground>
+            "#,
+        )
+        .unwrap();
+        assert_eq!(rgba_floats.r.value, 1);
+        assert_eq!(rgba_floats.g.value, 0);
+        assert_eq!(rgba_floats.b.value, 255);
+        assert_eq!(rgba_floats.a.value, 255);
+        let rgba_error: Result<RGBAColor, quick_xml::DeError> = from_str(
+            r#"
+            <ControlForeground>
+                <R Value="invalid value"/>
+            </ControlForeground>
+            "#,
+        );
+        assert!(matches!(rgba_error, Err(quick_xml::DeError::Custom(_))));
     }
     #[test]
     fn hex_color() {
