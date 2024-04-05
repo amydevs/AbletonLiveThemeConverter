@@ -162,7 +162,7 @@ impl<'de> Deserialize<'de> for HexColor {
             return Ok(HexColor { value: color });
         }
         Err(de::Error::custom(format!(
-            "String does not match the #rrggbbaa format"
+            "string does not match the #rrggbbaa format"
         )))
     }
 }
@@ -475,7 +475,6 @@ impl Meter {
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
-    use serde::de::Error;
 
     use super::{HexColor, RGBAColor, ValueWrapper};
     #[test]
@@ -487,6 +486,13 @@ mod tests {
         )
         .unwrap();
         assert_eq!(rgba_value.value, 90);
+        let rgba_error: Result<ValueWrapper<u8>, quick_xml::DeError> = from_str(
+            r#"
+            <Alpha Value="90.0"/>
+            "#,
+        );
+        println!("{:?}", rgba_error);
+        assert!(matches!(rgba_error, Err(quick_xml::DeError::InvalidInt(_))));
     }
     #[test]
     fn rgba() {
@@ -523,7 +529,7 @@ mod tests {
         let rgba_error: Result<RGBAColor, quick_xml::DeError> = from_str(
             r#"
             <ControlForeground>
-                <R Value="invalid value"/>
+                <R Value="value"/>
             </ControlForeground>
             "#,
         );
@@ -541,5 +547,8 @@ mod tests {
         assert_eq!(hex2.value.g, 2);
         assert_eq!(hex2.value.b, 3);
         assert_eq!(hex2.value.a, 255);
+        let hex_error: Result<HexColor, quick_xml::DeError> =
+            from_str("<ControlForeground Value=\"value\"/>");
+        assert!(matches!(hex_error, Err(quick_xml::DeError::Custom(_))));
     }
 }
