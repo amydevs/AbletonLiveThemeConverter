@@ -1,4 +1,5 @@
 use crate::util::{
+    get_live_version as get_live_version_internal,
     parse_ask as parse_ask_internal,
     convert_ask as convert_ask_internal,
     LiveVersion,
@@ -6,6 +7,10 @@ use crate::util::{
 };
 use wasm_bindgen::prelude::*;
 
+#[wasm_bindgen]
+pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
+    get_live_version_internal(xml)
+}
 
 #[wasm_bindgen]
 pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, JsError> {

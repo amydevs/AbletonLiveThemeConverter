@@ -37,7 +37,6 @@ impl LiveVersion {
     }
 }
 
-#[wasm_bindgen]
 pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     let re = Regex::new(LIVE_REGEX_STRING).unwrap();
     let caps = re.captures(xml)?;
