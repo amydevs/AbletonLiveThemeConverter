@@ -1,9 +1,11 @@
 use crate::common::{RGBAColor, ValueWrapper};
 use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
+use tsify::Tsify;
+use wasm_bindgen::prelude::*;
 
 #[skip_serializing_none]
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Tsify)]
 #[serde(rename_all = "PascalCase")]
 pub struct SkinManager {
     pub control_foreground: Option<RGBAColor>,
@@ -204,6 +206,18 @@ pub struct Ableton {
     #[serde(rename = "SkinManager")]
     pub skin_manager: Option<SkinManager>,
 }
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(typescript_type = "Ableton")]
+    pub type AbletonJsType;
+}
+impl Tsify for Ableton {
+    type JsType = AbletonJsType;
+    const DECL: &'static str = "export interface Ableton {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
+}
+#[wasm_bindgen(typescript_custom_section)]
+const TS_APPEND_CONTENT: &'static str = "export interface Ableton {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
+
 
 #[cfg(test)]
 mod tests {

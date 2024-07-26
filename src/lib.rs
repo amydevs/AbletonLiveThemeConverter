@@ -5,6 +5,8 @@ pub mod live10;
 pub mod live11;
 pub mod live12;
 pub mod util;
+#[cfg(target_arch = "wasm32")]
+pub mod wasm;
 
 impl Into<live10::Ableton> for live11::Ableton {
     fn into(self) -> live10::Ableton {

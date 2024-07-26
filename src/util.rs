@@ -4,7 +4,8 @@ use quick_xml::de::from_str;
 use quick_xml::DeError;
 use quick_xml::{de::from_reader, se::Serializer};
 use regex::Regex;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
+use tsify::Tsify;
 use wasm_bindgen::prelude::*;
 
 use crate::live10;
@@ -36,7 +37,7 @@ impl LiveVersion {
     }
 }
 
-#[wasm_bindgen()]
+#[wasm_bindgen]
 pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     let re = Regex::new(LIVE_REGEX_STRING).unwrap();
     let caps = re.captures(xml)?;
@@ -49,7 +50,8 @@ pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize, Tsify)]
+#[tsify(into_wasm_abi, from_wasm_abi)]
 pub enum LiveWrapper {
     Live10(live10::Ableton),
     Live11(live11::Ableton),
@@ -113,7 +115,7 @@ pub fn convert(from: LiveWrapper, to_version: LiveVersion) -> LiveWrapper {
     }
 }
 
-fn convert_ask_internal(
+pub fn convert_ask(
     xml: &str,
     from_version: LiveVersion,
     to_version: LiveVersion,
@@ -121,25 +123,6 @@ fn convert_ask_internal(
     let live = parse_ask(xml, from_version)?;
     let converted = convert(live, to_version);
     generate_ask(&converted)
-}
-
-#[cfg(not(target_arch = "wasm32"))]
-pub fn convert_ask(
-    xml: &str,
-    from_version: LiveVersion,
-    to_version: LiveVersion,
-) -> Result<String, DeError> {
-    convert_ask_internal(xml, from_version, to_version)
-}
-
-#[cfg(target_arch = "wasm32")]
-#[wasm_bindgen]
-pub fn convert_ask(
-    xml: &str,
-    from_version: LiveVersion,
-    to_version: LiveVersion,
-) -> Result<String, JsError> {
-    Ok(convert_ask_internal(xml, from_version, to_version)?)
 }
 
 #[cfg(test)]
