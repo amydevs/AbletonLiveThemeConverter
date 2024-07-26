@@ -1,6 +1,6 @@
 [package]
 name = "altc"
-version = "0.1.10"
+version = "0.2.1"
 edition = "2021"
 description = "Convert Live 10, 11, and 12 themes"
 readme = "README.md"
@@ -31,6 +31,7 @@ quick-xml = { version = "0", features = ["serialize"] }
 regex = "1"
 serde = { version = "1", features = ["derive"] }
 wasm-bindgen = "0.2"
+tsify = "0.4"
 serde_with = "3"
 # bin stuff
 clap = { version = "4", features = ["derive"] , optional = true }

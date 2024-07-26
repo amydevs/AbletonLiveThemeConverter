@@ -129,16 +129,17 @@ fn main() -> core::result::Result<(), String> {
         use crate::common::{HexColor, Meter, ValueWrapper};
         use serde::{Deserialize, Serialize};
         use serde_with::skip_serializing_none;
+        use tsify::Tsify;
 
         #[skip_serializing_none]
-        #[derive(Debug, Serialize, Deserialize)]
+        #[derive(Debug, Serialize, Deserialize, Tsify)]
         #[serde(rename_all = "PascalCase")]
         pub struct #theme_class_token_stream {
             #( #fields ),*
         }
 
         #[skip_serializing_none]
-        #[derive(Debug, Serialize, Deserialize)]
+        #[derive(Debug, Serialize, Deserialize, Tsify)]
         pub struct Ableton {
             #[serde(rename = "@MajorVersion")]
             pub major_version: Option<String>,
