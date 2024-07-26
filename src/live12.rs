@@ -263,10 +263,10 @@ extern "C" {
 }
 impl Tsify for Ableton12 {
     type JsType = AbletonJsType;
-    const DECL: &'static str = "export interface Ableton12 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme;\n}";
+    const DECL: &'static str = "export interface Ableton12 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme12;\n}";
 }
 #[wasm_bindgen(typescript_custom_section)]
-const TS_APPEND_CONTENT: &'static str = "export interface Ableton12 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme;\n}";
+const TS_APPEND_CONTENT: &'static str = "export interface Ableton12 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme12;\n}";
 
 #[cfg(test)]
 mod tests {

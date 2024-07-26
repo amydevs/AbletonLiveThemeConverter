@@ -213,10 +213,10 @@ extern "C" {
 }
 impl Tsify for Ableton10 {
     type JsType = AbletonJsType;
-    const DECL: &'static str = "export interface Ableton10 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
+    const DECL: &'static str = "export interface Ableton10 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager10;\n}";
 }
 #[wasm_bindgen(typescript_custom_section)]
-const TS_APPEND_CONTENT: &'static str = "export interface Ableton10 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
+const TS_APPEND_CONTENT: &'static str = "export interface Ableton10 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager10;\n}";
 
 
 #[cfg(test)]
