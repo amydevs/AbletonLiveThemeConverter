@@ -7,7 +7,7 @@ use wasm_bindgen::prelude::*;
 #[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize, Tsify)]
 #[serde(rename_all = "PascalCase")]
-pub struct SkinManager {
+pub struct SkinManager10 {
     pub control_foreground: Option<RGBAColor>,
     pub text_disabled: Option<RGBAColor>,
     pub control_disabled: Option<RGBAColor>,
@@ -192,7 +192,7 @@ pub struct SkinManager {
 
 #[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Ableton {
+pub struct Ableton10 {
     #[serde(rename = "@MajorVersion")]
     pub major_version: Option<String>,
     #[serde(rename = "@MinorVersion")]
@@ -204,29 +204,29 @@ pub struct Ableton {
     #[serde(rename = "@Revision")]
     pub revision: Option<String>,
     #[serde(rename = "SkinManager")]
-    pub skin_manager: Option<SkinManager>,
+    pub skin_manager: Option<SkinManager10>,
 }
 #[wasm_bindgen]
 extern "C" {
-    #[wasm_bindgen(typescript_type = "Ableton")]
+    #[wasm_bindgen(typescript_type = "Ableton10")]
     pub type AbletonJsType;
 }
-impl Tsify for Ableton {
+impl Tsify for Ableton10 {
     type JsType = AbletonJsType;
-    const DECL: &'static str = "export interface Ableton {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
+    const DECL: &'static str = "export interface Ableton10 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
 }
 #[wasm_bindgen(typescript_custom_section)]
-const TS_APPEND_CONTENT: &'static str = "export interface Ableton {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
+const TS_APPEND_CONTENT: &'static str = "export interface Ableton10 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    SkinManager?: SkinManager;\n}";
 
 
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
 
-    use super::Ableton;
+    use super::Ableton10;
     #[test]
     fn ableton() {
-        let ableton: Ableton = from_str(include_str!("../test_themes/blank_10.ask")).unwrap();
+        let ableton: Ableton10 = from_str(include_str!("../test_themes/blank_10.ask")).unwrap();
         assert_eq!(ableton.major_version, Some("5".to_string()));
     }
 }

@@ -7,7 +7,7 @@ use wasm_bindgen::prelude::*;
 #[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize, Tsify)]
 #[serde(rename_all = "PascalCase")]
-pub struct Theme {
+pub struct Theme11 {
     pub control_foreground: Option<HexColor>,
     pub text_disabled: Option<HexColor>,
     pub control_disabled: Option<HexColor>,
@@ -228,7 +228,7 @@ pub struct Theme {
 
 #[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Ableton {
+pub struct Ableton11 {
     #[serde(rename = "@MajorVersion")]
     pub major_version: Option<String>,
     #[serde(rename = "@MinorVersion")]
@@ -240,28 +240,28 @@ pub struct Ableton {
     #[serde(rename = "@Revision")]
     pub revision: Option<String>,
     #[serde(rename = "Theme")]
-    pub theme: Option<Theme>,
+    pub theme: Option<Theme11>,
 }
 #[wasm_bindgen]
 extern "C" {
-    #[wasm_bindgen(typescript_type = "Ableton")]
+    #[wasm_bindgen(typescript_type = "Ableton11")]
     pub type AbletonJsType;
 }
-impl Tsify for Ableton {
+impl Tsify for Ableton11 {
     type JsType = AbletonJsType;
-    const DECL: &'static str = "export interface Ableton {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme;\n}";
+    const DECL: &'static str = "export interface Ableton11 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme;\n}";
 }
 #[wasm_bindgen(typescript_custom_section)]
-const TS_APPEND_CONTENT: &'static str = "export interface Ableton {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme;\n}";
+const TS_APPEND_CONTENT: &'static str = "export interface Ableton11 {\n    \"@MajorVersion?\": string;\n    \"@MinorVersion?\": string;\n    \"@SchemaChangeCount?\": string;\n    \"@Creator?\": string;\n    \"@Revision?\": string;\n    Theme?: Theme;\n}";
 
 #[cfg(test)]
 mod tests {
     use quick_xml::de::from_str;
 
-    use super::Ableton;
+    use super::Ableton11;
     #[test]
     fn ableton() {
-        let ableton: Ableton = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
+        let ableton: Ableton11 = from_str(include_str!("../test_themes/blank_11.ask")).unwrap();
         assert_eq!(ableton.major_version, Some("5".to_string()));
     }
 }

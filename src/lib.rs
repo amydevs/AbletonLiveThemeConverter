@@ -8,9 +8,9 @@ pub mod util;
 #[cfg(target_arch = "wasm32")]
 pub mod wasm;
 
-impl Into<live10::Ableton> for live11::Ableton {
-    fn into(self) -> live10::Ableton {
-        live10::Ableton {
+impl Into<live10::Ableton10> for live11::Ableton11 {
+    fn into(self) -> live10::Ableton10 {
+        live10::Ableton10 {
             major_version: Some("5".to_owned()),
             minor_version: Some("10.0_373".to_owned()),
             schema_change_count: Some("1".to_owned()),
@@ -21,9 +21,9 @@ impl Into<live10::Ableton> for live11::Ableton {
     }
 }
 
-impl Into<live10::SkinManager> for live11::Theme {
-    fn into(self) -> live10::SkinManager {
-        live10::SkinManager {
+impl Into<live10::SkinManager10> for live11::Theme11 {
+    fn into(self) -> live10::SkinManager10 {
+        live10::SkinManager10 {
             control_foreground: self.control_foreground.and_then(|v| Some(v.into())),
             text_disabled: self.text_disabled.and_then(|v| Some(v.into())),
             control_disabled: self.control_disabled.and_then(|v| Some(v.into())),
@@ -292,9 +292,9 @@ impl Into<live10::SkinManager> for live11::Theme {
     }
 }
 
-impl Into<live11::Ableton> for live10::Ableton {
-    fn into(self) -> live11::Ableton {
-        live11::Ableton {
+impl Into<live11::Ableton11> for live10::Ableton10 {
+    fn into(self) -> live11::Ableton11 {
+        live11::Ableton11 {
             major_version: Some("5".to_owned()),
             minor_version: Some("11.0_432".to_owned()),
             schema_change_count: Some("3".to_owned()),
@@ -305,9 +305,9 @@ impl Into<live11::Ableton> for live10::Ableton {
     }
 }
 
-impl Into<live11::Theme> for live10::SkinManager {
-    fn into(self) -> live11::Theme {
-        live11::Theme {
+impl Into<live11::Theme11> for live10::SkinManager10 {
+    fn into(self) -> live11::Theme11 {
+        live11::Theme11 {
             control_foreground: self.control_foreground.and_then(|v| Some(v.into())),
             text_disabled: self.text_disabled.and_then(|v| Some(v.into())),
             control_disabled: self.control_disabled.and_then(|v| Some(v.into())),
@@ -629,9 +629,9 @@ impl Into<live11::Theme> for live10::SkinManager {
     }
 }
 
-impl Into<live11::Ableton> for live12::Ableton {
-    fn into(self) -> live11::Ableton {
-        live11::Ableton {
+impl Into<live11::Ableton11> for live12::Ableton12 {
+    fn into(self) -> live11::Ableton11 {
+        live11::Ableton11 {
             major_version: Some("5".to_owned()),
             minor_version: Some("11.0_432".to_owned()),
             schema_change_count: Some("3".to_owned()),
@@ -642,9 +642,9 @@ impl Into<live11::Ableton> for live12::Ableton {
     }
 }
 
-impl Into<live11::Theme> for live12::Theme {
-    fn into(self) -> live11::Theme {
-        live11::Theme {
+impl Into<live11::Theme11> for live12::Theme12 {
+    fn into(self) -> live11::Theme11 {
+        live11::Theme11 {
             control_foreground: self.control_foreground,
             text_disabled: self.text_disabled,
             control_disabled: self.control_disabled,
@@ -868,9 +868,9 @@ impl Into<live11::Theme> for live12::Theme {
     }
 }
 
-impl Into<live12::Ableton> for live11::Ableton {
-    fn into(self) -> live12::Ableton {
-        live12::Ableton {
+impl Into<live12::Ableton12> for live11::Ableton11 {
+    fn into(self) -> live12::Ableton12 {
+        live12::Ableton12 {
             major_version: Some("5".to_owned()),
             minor_version: Some("12.0_12047".to_owned()),
             schema_change_count: Some("2".to_owned()),
@@ -881,9 +881,9 @@ impl Into<live12::Ableton> for live11::Ableton {
     }
 }
 
-impl Into<live12::Theme> for live11::Theme {
-    fn into(self) -> live12::Theme {
-        live12::Theme {
+impl Into<live12::Theme12> for live11::Theme11 {
+    fn into(self) -> live12::Theme12 {
+        live12::Theme12 {
             control_foreground: self.control_foreground,
             text_disabled: self.text_disabled,
             control_disabled: self.control_disabled,

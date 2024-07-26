@@ -53,9 +53,9 @@ pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
 #[derive(Debug, Serialize, Deserialize, Tsify)]
 #[tsify(into_wasm_abi, from_wasm_abi)]
 pub enum LiveWrapper {
-    Live10(live10::Ableton),
-    Live11(live11::Ableton),
-    Live12(live12::Ableton),
+    Live10(live10::Ableton10),
+    Live11(live11::Ableton11),
+    Live12(live12::Ableton12),
 }
 
 pub fn parse_ask(xml: &str, version: LiveVersion) -> Result<LiveWrapper, DeError> {
@@ -95,7 +95,7 @@ pub fn convert(from: LiveWrapper, to_version: LiveVersion) -> LiveWrapper {
             LiveWrapper::Live10(_) => from,
             LiveWrapper::Live11(live11) => LiveWrapper::Live10(live11.into()),
             LiveWrapper::Live12(live12) => {
-                let live11: live11::Ableton = live12.into();
+                let live11: live11::Ableton11 = live12.into();
                 LiveWrapper::Live10(live11.into())
             }
         },
@@ -106,7 +106,7 @@ pub fn convert(from: LiveWrapper, to_version: LiveVersion) -> LiveWrapper {
         },
         LiveVersion::Live12 => match from {
             LiveWrapper::Live10(live10) => {
-                let live11: live11::Ableton = live10.into();
+                let live11: live11::Ableton11 = live10.into();
                 LiveWrapper::Live12(live11.into())
             }
             LiveWrapper::Live11(live11) => LiveWrapper::Live12(live11.into()),
