@@ -106,6 +106,7 @@ where
 #[skip_serializing_none]
 #[derive(Clone, Copy, Debug, Tsify)]
 pub struct HexColor {
+    #[tsify(type = "string")]
     pub value: Color,
 }
 
