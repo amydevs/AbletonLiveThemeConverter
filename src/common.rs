@@ -104,9 +104,8 @@ where
 }
 
 #[skip_serializing_none]
-#[derive(Clone, Copy, Debug, Tsify)]
+#[derive(Clone, Copy, Debug)]
 pub struct HexColor {
-    #[tsify(type = "string")]
     pub value: Color,
 }
 
@@ -182,6 +181,18 @@ impl<'de> Deserialize<'de> for HexColor {
         )))
     }
 }
+
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(typescript_type = "HexColor")]
+    pub type HexColorJsType;
+}
+impl Tsify for HexColor {
+    type JsType = HexColorJsType;
+    const DECL: &'static str = "export interface HexColor {\n    \"@Value\": string;\n}";
+}
+#[wasm_bindgen(typescript_custom_section)]
+const TS_APPEND_CONTENT: &'static str = "export interface HexColor {\n    \"@Value\": string;\n}";
 
 impl Into<HexColor> for RGBAColor {
     fn into(self) -> HexColor {
