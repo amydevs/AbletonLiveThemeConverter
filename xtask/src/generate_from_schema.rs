@@ -1,7 +1,7 @@
 use std::fs;
 use std::io::Write;
 
-use clap::Parser;
+use clap::Args;
 use convert_case::{Case, Casing};
 use proc_macro2::*;
 use quick_xml::events::Event;
@@ -10,9 +10,8 @@ use quote::*;
 use regex::Regex;
 use syn::*;
 
-#[derive(Parser)]
-#[command(author, version, about, long_about = None)]
-struct Args {
+#[derive(Args, Debug)]
+pub struct GenerateFromSchemaArgs {
     /// The path to the .ask theme file
     #[arg()]
     input_path: String,
@@ -21,9 +20,7 @@ struct Args {
     output_path: String,
 }
 
-fn main() -> core::result::Result<(), String> {
-    let args = Args::parse();
-
+pub fn run(args: GenerateFromSchemaArgs) -> core::result::Result<(), String> {
     let schema = fs::read_to_string(&args.input_path).unwrap();
 
     let theme_class_regex = Regex::new(r"<(SkinManager|Theme)>").unwrap();
@@ -130,16 +127,17 @@ fn main() -> core::result::Result<(), String> {
         use serde::{Deserialize, Serialize};
         use serde_with::skip_serializing_none;
         use tsify::Tsify;
+        use schemars::JsonSchema;
 
         #[skip_serializing_none]
-        #[derive(Debug, Serialize, Deserialize, Tsify)]
+        #[derive(Debug, Serialize, Deserialize, Tsify, JsonSchema)]
         #[serde(rename_all = "PascalCase")]
         pub struct #theme_class_token_stream {
             #( #fields ),*
         }
 
         #[skip_serializing_none]
-        #[derive(Debug, Serialize, Deserialize, Tsify)]
+        #[derive(Debug, Serialize, Deserialize, Tsify, JsonSchema)]
         pub struct Ableton {
             #[serde(rename = "@MajorVersion")]
             pub major_version: Option<String>,

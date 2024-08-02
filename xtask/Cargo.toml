@@ -6,7 +6,17 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+altc = { path = "../" }
+clap = { version = "4", features = ["derive"] }
+# generate-json-schema stuff
 serde = { version = "1", features = ["derive"] }
 schemars = "=1.0.0-alpha.2"
 serde_json = "1.0"
-altc = { path = "../" }
+# generate-from-schema stuff
+quick-xml = { version = "0", features = ["serialize"] }
+regex = "1"
+syn = { version = "2", features = ["parsing", "printing", "extra-traits"] }
+quote = { version = "1" }
+proc-macro2 = { version = "1" }
+convert_case = { version = "0.6" }
+prettyplease = { version = "0.2.17" }

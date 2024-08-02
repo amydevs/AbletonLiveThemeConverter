@@ -1,4 +1,4 @@
 {
     "nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix",
-    "rust-analyzer.cargo.features": ["bin", "schemagen"]
+    "rust-analyzer.cargo.features": ["bin"]
 }

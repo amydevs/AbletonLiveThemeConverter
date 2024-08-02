@@ -16,16 +16,11 @@ name = "altc"
 version = "0.2.5"
 dependencies = [
  "clap",
- "convert_case",
- "prettyplease",
- "proc-macro2",
  "quick-xml",
- "quote",
  "regex",
  "schemars",
  "serde",
  "serde_with",
- "syn",
  "tsify",
  "wasm-bindgen",
 ]
@@ -850,7 +845,15 @@ name = "xtask"
 version = "0.1.0"
 dependencies = [
  "altc",
+ "clap",
+ "convert_case",
+ "prettyplease",
+ "proc-macro2",
+ "quick-xml",
+ "quote",
+ "regex",
  "schemars",
  "serde",
  "serde_json",
+ "syn",
 ]
