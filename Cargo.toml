@@ -33,6 +33,7 @@ serde = { version = "1", features = ["derive"] }
 wasm-bindgen = "0.2"
 tsify = "0.4"
 serde_with = "3"
+schemars = "=1.0.0-alpha.2"
 # bin stuff
 clap = { version = "4", features = ["derive"] , optional = true }
 # schemagen stuff
@@ -41,3 +42,8 @@ quote = { version = "1", optional = true }
 proc-macro2 = { version = "1", optional = true }
 convert_case = { version = "0.6", optional = true }
 prettyplease = { version = "0.2.17", optional = true }
+
+[workspace]
+members = [
+    "xtask",
+]

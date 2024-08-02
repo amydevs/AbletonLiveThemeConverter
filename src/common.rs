@@ -4,11 +4,12 @@ use serde::{
 };
 use serde_with::skip_serializing_none;
 use tsify::Tsify;
+use schemars::JsonSchema;
 use wasm_bindgen::prelude::*;
 
 
 
-#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Serialize, Deserialize, JsonSchema)]
 pub struct ValueWrapper<T> {
     #[serde(rename = "@Value")]
     pub value: T,
@@ -25,7 +26,7 @@ impl<T> Tsify for ValueWrapper<T> {
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = "export interface ValueWrapper<T> {\n    \"@Value\": T;\n}";
 
-#[derive(Clone, Copy, Debug, Tsify)]
+#[derive(Clone, Copy, Debug, Tsify, JsonSchema)]
 pub struct Color {
     pub r: u8,
     pub g: u8,
@@ -45,7 +46,7 @@ impl Default for Color {
 }
 
 #[skip_serializing_none]
-#[derive(Clone, Copy, Debug, Serialize, Deserialize, Tsify)]
+#[derive(Clone, Copy, Debug, Serialize, Deserialize, Tsify, JsonSchema)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct RGBAColor {
     #[serde(deserialize_with = "deserialize_coerce_u8")]
@@ -104,8 +105,10 @@ where
 }
 
 #[skip_serializing_none]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, JsonSchema)]
 pub struct HexColor {
+    #[schemars(regex(pattern = r"^#[0-9a-fA-F]{6,8}$"))]
+    #[serde(rename = "@Value", with = "String")]
     pub value: Color,
 }
 
@@ -209,7 +212,7 @@ impl Into<RGBAColor> for HexColor {
 }
 
 #[skip_serializing_none]
-#[derive(Debug, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Serialize, Deserialize, Tsify, JsonSchema)]
 #[serde(rename_all = "PascalCase")]
 pub struct Meter {
     pub only_minimum_to_maximum: Option<ValueWrapper<bool>>,

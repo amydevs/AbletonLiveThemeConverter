@@ -4,6 +4,7 @@ use quick_xml::de::from_str;
 use quick_xml::DeError;
 use quick_xml::{de::from_reader, se::Serializer};
 use regex::Regex;
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use tsify::Tsify;
 use wasm_bindgen::prelude::*;
@@ -49,7 +50,7 @@ pub fn get_live_version(xml: &str) -> Option<LiveVersion> {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Serialize, Deserialize, Tsify, JsonSchema)]
 #[tsify(into_wasm_abi, from_wasm_abi)]
 pub enum LiveWrapper {
     Live10(live10::Ableton10),

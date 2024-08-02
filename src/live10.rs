@@ -2,10 +2,11 @@ use crate::common::{RGBAColor, ValueWrapper};
 use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 use tsify::Tsify;
+use schemars::JsonSchema;
 use wasm_bindgen::prelude::*;
 
 #[skip_serializing_none]
-#[derive(Debug, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Serialize, Deserialize, Tsify, JsonSchema)]
 #[serde(rename_all = "PascalCase")]
 pub struct SkinManager10 {
     pub control_foreground: Option<RGBAColor>,
@@ -191,7 +192,7 @@ pub struct SkinManager10 {
 }
 
 #[skip_serializing_none]
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, JsonSchema)]
 pub struct Ableton10 {
     #[serde(rename = "@MajorVersion")]
     pub major_version: Option<String>,
