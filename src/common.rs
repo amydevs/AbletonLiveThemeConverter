@@ -93,10 +93,10 @@ where
     D: Deserializer<'de>,
 {
     let string_val: ValueWrapper<String> = ValueWrapper::deserialize(deserializer)?;
-    if let Ok(val) = string_val.value.parse() {
+    if let Ok(val) = string_val.value.trim().parse() {
         return Ok(ValueWrapper { value: val });
     }
-    if let Ok(val) = string_val.value.parse::<f64>() {
+    if let Ok(val) = string_val.value.trim().parse::<f64>() {
         return Ok(ValueWrapper { value: val as u8 });
     }
     Err(de::Error::custom(
