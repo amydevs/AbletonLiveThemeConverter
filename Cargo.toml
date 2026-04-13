@@ -1,6 +1,6 @@
 [package]
 name = "altc"
-version = "0.2.7"
+version = "0.2.8"
 edition = "2021"
 description = "Convert Live 10, 11, and 12 themes"
 readme = "README.md"
@@ -28,7 +28,7 @@ serde = { version = "1", features = ["derive"] }
 wasm-bindgen = "0.2"
 tsify = "0.4"
 serde_with = "3"
-schemars = "=1.0.0-alpha.2"
+schemars = "1"
 # bin stuff
 clap = { version = "4", features = ["derive"] , optional = true }
 
