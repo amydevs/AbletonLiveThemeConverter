@@ -8,6 +8,8 @@ pub mod util;
 #[cfg(target_arch = "wasm32")]
 pub mod wasm;
 
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+
 impl Into<live10::Ableton10> for live11::Ableton11 {
     fn into(self) -> live10::Ableton10 {
         live10::Ableton10 {
