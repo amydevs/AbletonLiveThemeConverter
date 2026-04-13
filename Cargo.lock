@@ -13,7 +13,7 @@ dependencies = [
 
 [[package]]
 name = "altc"
-version = "0.2.11"
+version = "0.2.12"
 dependencies = [
  "clap",
  "quick-xml 0.36.2",
