@@ -33,7 +33,7 @@ pub fn run(args: GenerateFromSchemaArgs) -> core::result::Result<(), String> {
     let mut fields: Vec<Field> = vec![];
 
     let mut reader = Reader::from_str(&schema);
-    reader.trim_text(true);
+    // reader.trim_text(true);
     let mut buf = Vec::new();
     let mut is_subject = false;
 
