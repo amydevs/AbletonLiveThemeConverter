@@ -243,6 +243,7 @@ pub struct Theme12 {
 
 #[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize, JsonSchema)]
+#[serde(rename = "Ableton")]
 pub struct Ableton12 {
     #[serde(rename = "@MajorVersion")]
     pub major_version: Option<String>,

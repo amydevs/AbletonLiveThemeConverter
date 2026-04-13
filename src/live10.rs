@@ -193,6 +193,7 @@ pub struct SkinManager10 {
 
 #[skip_serializing_none]
 #[derive(Debug, Serialize, Deserialize, JsonSchema)]
+#[serde(rename = "Ableton")]
 pub struct Ableton10 {
     #[serde(rename = "@MajorVersion")]
     pub major_version: Option<String>,
