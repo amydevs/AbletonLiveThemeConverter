@@ -85,7 +85,7 @@ pub fn generate_ask(live: &LiveWrapper) -> Result<String, DeError> {
         LiveWrapper::Live10(live10) => live10.serialize(ser)?,
         LiveWrapper::Live11(live11) => live11.serialize(ser)?,
         LiveWrapper::Live12(live12) => live12.serialize(ser)?,
-    }
+    };
     Ok(buffer)
 }
 
